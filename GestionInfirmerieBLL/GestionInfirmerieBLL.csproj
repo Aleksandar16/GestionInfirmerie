@@ -44,5 +44,15 @@
     <Compile Include="GestionEleve.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GestionInfirmerieBO\GestionInfirmerieBO.csproj">
+      <Project>{8c813e39-1453-42fc-9860-cf7266024e13}</Project>
+      <Name>GestionInfirmerieBO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GestionInfirmerieDAL\GestionInfirmerieDAL.csproj">
+      <Project>{8535a386-642f-4997-8106-0f5d7da2932a}</Project>
+      <Name>GestionInfirmerieDAL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
