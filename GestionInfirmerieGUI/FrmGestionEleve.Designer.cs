@@ -29,12 +29,36 @@ namespace GestionInfirmerieGUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.btnRetour = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // btnRetour
+            // 
+            this.btnRetour.BackColor = System.Drawing.Color.Blue;
+            this.btnRetour.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F);
+            this.btnRetour.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnRetour.Location = new System.Drawing.Point(33, 377);
+            this.btnRetour.Name = "btnRetour";
+            this.btnRetour.Size = new System.Drawing.Size(150, 48);
+            this.btnRetour.TabIndex = 0;
+            this.btnRetour.Text = "Retour";
+            this.btnRetour.UseVisualStyleBackColor = false;
+            this.btnRetour.Click += new System.EventHandler(this.btnRetour_Click);
+            // 
+            // FrmGestionEleve
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnRetour);
+            this.Name = "FrmGestionEleve";
             this.Text = "FrmGestionEleve";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnRetour;
     }
 }

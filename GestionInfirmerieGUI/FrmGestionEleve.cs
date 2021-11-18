@@ -16,5 +16,10 @@ namespace GestionInfirmerieGUI
         {
             InitializeComponent();
         }
+
+        private void btnRetour_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
