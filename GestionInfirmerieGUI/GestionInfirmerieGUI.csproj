@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmAjoutEleve.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAjoutEleve.Designer.cs">
+      <DependentUpon>FrmAjoutEleve.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmGestionEleve.cs">
       <SubType>Form</SubType>
     </Compile>

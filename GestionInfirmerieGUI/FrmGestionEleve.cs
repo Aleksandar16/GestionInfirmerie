@@ -21,5 +21,13 @@ namespace GestionInfirmerieGUI
         {
             this.Close();
         }
+
+        private void btnAjoutEleve_Click(object sender, EventArgs e)
+        {
+            FrmAjoutEleve FrmAjoutEleve;
+            FrmAjoutEleve = new FrmAjoutEleve();
+            FrmAjoutEleve.ShowDialog();
+            FrmAjoutEleve.Close();
+        }
     }
 }
