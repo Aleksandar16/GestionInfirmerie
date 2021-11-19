@@ -52,6 +52,12 @@
     <Compile Include="FrmAjoutEleve.Designer.cs">
       <DependentUpon>FrmAjoutEleve.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmDetailEleve.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDetailEleve.Designer.cs">
+      <DependentUpon>FrmDetailEleve.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmGestionEleve.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmAjoutEleve.resx">
+      <DependentUpon>FrmAjoutEleve.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmGestionEleve.resx">
       <DependentUpon>FrmGestionEleve.cs</DependentUpon>
     </EmbeddedResource>

@@ -57,6 +57,7 @@ namespace GestionInfirmerieGUI
             this.btnVoirEleve.TabIndex = 1;
             this.btnVoirEleve.Text = "Voir les élèves";
             this.btnVoirEleve.UseVisualStyleBackColor = true;
+            this.btnVoirEleve.Click += new System.EventHandler(this.btnVoirEleve_Click);
             // 
             // btnAjoutEleve
             // 
