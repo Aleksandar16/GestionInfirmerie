@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -102,6 +103,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GestionInfirmerieBLL\GestionInfirmerieBLL.csproj">
+      <Project>{b5dcbb1d-b315-416c-9de7-dd6515911c7f}</Project>
+      <Name>GestionInfirmerieBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GestionInfirmerieBO\GestionInfirmerieBO.csproj">
+      <Project>{8c813e39-1453-42fc-9860-cf7266024e13}</Project>
+      <Name>GestionInfirmerieBO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Configuration;
-using GestionInfirmerieBO; // Référence la couche BO
-using GestionInfirmerieDAL; // Référence la couche DAL
+using GestionInfirmerieBO;
+using GestionInfirmerieDAL;
 
-namespace UtilisateursBLL
+namespace GestionInfirmerieBLL
 {
-    public class GestionInfirmerie
+    public class GestionEleve
     {
-        private static GestionInfirmerie uneGestionInfirmerie; // objet BLL
+        private static GestionEleve uneGestionEleve; // objet BLL
 
         // Accesseur en lecture
-        public static GestionInfirmerie GetGestionInfirmerie()
+        public static GestionEleve GetGestionEleve()
         {
-            if (uneGestionInfirmerie == null)
+            if (uneGestionEleve == null)
             {
-                uneGestionInfirmerie = new GestionInfirmerie();
+                uneGestionEleve = new GestionEleve();
             }
-            return uneGestionInfirmerie;
+            return uneGestionEleve;
         }
 
         // Définit la chaîne de connexion grâce à la méthode SetchaineConnexion de la DAL
@@ -31,23 +31,23 @@ namespace UtilisateursBLL
         // Méthode qui renvoit une List d'objets Utilisateur en faisant appel à la méthode GetUtilisateurs() de la DAL
         public static List<Eleve> GetEleve()
         {
-            return GestionInfirmerieDAO.GetEleve();
+            return EleveDAO.GetEleve();
         }
         // Méthode qui renvoi l’objet Utilisateur en l'ajoutant à la
         // BD avec la méthode AjoutUtilisateur de la DAL
         public static int CreerEleve(Eleve ut)
         {
-            return GestionInfirmerieDAO.AjoutEleve(ut);
+            return EleveDAO.AjoutEleve(ut);
         }
         // Méthode qui modifie un nouvel Utilisateur avec la méthode UpdateUtilisateur de la DAL
-        public static int ModifierUtilisateur(Eleve ut)
+        public static int ModifierEleve(Eleve ut)
         {
-            return GestionInfirmerieDAO.UpdateEleve(ut);
+            return EleveDAO.UpdateEleve(ut);
         }
         // Méthode qui supprime un Utilisateur avec la méthode DeleteUtilisateur de la DAL
-        public static int SupprimerUtilisateur(int id)
+        public static int SupprimerEleve(int id)
         {
-            return GestionInfirmerieDAO.DeleteEleve(id);
+            return EleveDAO.DeleteEleve(id);
         }
     }
 }

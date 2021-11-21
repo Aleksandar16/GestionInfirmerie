@@ -95,6 +95,7 @@ namespace GestionInfirmerieGUI
             this.btnValider.TabIndex = 8;
             this.btnValider.Text = "Ajouter";
             this.btnValider.UseVisualStyleBackColor = false;
+            this.btnValider.Click += new System.EventHandler(this.btnValider_Click);
             // 
             // button2
             // 

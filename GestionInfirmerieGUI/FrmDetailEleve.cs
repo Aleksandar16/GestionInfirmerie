@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
+using GestionInfirmerieBLL;
+using GestionInfirmerieBO;
 
 namespace GestionInfirmerieGUI
 {
@@ -15,6 +18,8 @@ namespace GestionInfirmerieGUI
         public FrmDetailEleve()
         {
             InitializeComponent();
+            GestionEleve.SetchaineConnexion(ConfigurationManager.ConnectionStrings["GestionInfirmerie"]);
+            List<Eleve> adherents = GestionEleve.GetEleve();
         }
     }
 }

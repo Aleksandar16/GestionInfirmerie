@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClasseDAO.cs" />
     <Compile Include="ConnexionBD.cs" />
     <Compile Include="EleveDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

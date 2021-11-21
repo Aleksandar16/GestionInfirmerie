@@ -7,17 +7,17 @@ using System.Data.SqlClient;
 
 namespace GestionInfirmerieDAL
 {
-    public class GestionInfirmerieDAO
+    public class EleveDAO
     {
-        private static GestionInfirmerieDAO uneGestionInfirmerieDAO;
+        private static EleveDAO unEleveDAO;
         // Accesseur en lecture, renvoi une instance
-        public static GestionInfirmerieDAO GetuneGestionInfirmerieDAO()
+        public static EleveDAO GetunEleveDAO()
         {
-            if (uneGestionInfirmerieDAO == null)
+            if (unEleveDAO == null)
             {
-                uneGestionInfirmerieDAO = new GestionInfirmerieDAO();
+                unEleveDAO = new EleveDAO();
             }
-            return uneGestionInfirmerieDAO;
+            return unEleveDAO;
         }
 
         // Cette méthode retourne une List contenant les objets Eleves contenus dans la table ELEVE
