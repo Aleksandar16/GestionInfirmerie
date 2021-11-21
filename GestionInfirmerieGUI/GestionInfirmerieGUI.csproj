@@ -76,6 +76,9 @@
     <EmbeddedResource Include="FrmAjoutEleve.resx">
       <DependentUpon>FrmAjoutEleve.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmDetailEleve.resx">
+      <DependentUpon>FrmDetailEleve.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmGestionEleve.resx">
       <DependentUpon>FrmGestionEleve.cs</DependentUpon>
     </EmbeddedResource>

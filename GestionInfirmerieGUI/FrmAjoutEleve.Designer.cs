@@ -29,11 +29,11 @@ namespace GestionInfirmerieGUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtAjoutNom = new System.Windows.Forms.TextBox();
+            this.txtAjoutPrenom = new System.Windows.Forms.TextBox();
+            this.txtAjoutDateNaissance = new System.Windows.Forms.TextBox();
+            this.txtAjoutTelParent = new System.Windows.Forms.TextBox();
+            this.txtAjoutTelEleve = new System.Windows.Forms.TextBox();
             this.btnValider = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.lblAjoutNom = new System.Windows.Forms.Label();
@@ -45,44 +45,44 @@ namespace GestionInfirmerieGUI
             this.lblAjoutCommentaireSante = new System.Windows.Forms.Label();
             this.lblAjoutClasse = new System.Windows.Forms.Label();
             this.cmbAjoutTiersTemps = new System.Windows.Forms.ComboBox();
-            this.rtxtAjoutCommentaireSante = new System.Windows.Forms.RichTextBox();
+            this.txtAjoutCommentaireSante = new System.Windows.Forms.RichTextBox();
             this.cmbAjoutClasse = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtAjoutNom
             // 
-            this.textBox1.Location = new System.Drawing.Point(96, 37);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(166, 22);
-            this.textBox1.TabIndex = 0;
+            this.txtAjoutNom.Location = new System.Drawing.Point(96, 37);
+            this.txtAjoutNom.Name = "txtAjoutNom";
+            this.txtAjoutNom.Size = new System.Drawing.Size(166, 22);
+            this.txtAjoutNom.TabIndex = 0;
             // 
-            // textBox2
+            // txtAjoutPrenom
             // 
-            this.textBox2.Location = new System.Drawing.Point(96, 114);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(166, 22);
-            this.textBox2.TabIndex = 1;
+            this.txtAjoutPrenom.Location = new System.Drawing.Point(96, 114);
+            this.txtAjoutPrenom.Name = "txtAjoutPrenom";
+            this.txtAjoutPrenom.Size = new System.Drawing.Size(166, 22);
+            this.txtAjoutPrenom.TabIndex = 1;
             // 
-            // textBox3
+            // txtAjoutDateNaissance
             // 
-            this.textBox3.Location = new System.Drawing.Point(96, 189);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(166, 22);
-            this.textBox3.TabIndex = 2;
+            this.txtAjoutDateNaissance.Location = new System.Drawing.Point(96, 189);
+            this.txtAjoutDateNaissance.Name = "txtAjoutDateNaissance";
+            this.txtAjoutDateNaissance.Size = new System.Drawing.Size(166, 22);
+            this.txtAjoutDateNaissance.TabIndex = 2;
             // 
-            // textBox4
+            // txtAjoutTelParent
             // 
-            this.textBox4.Location = new System.Drawing.Point(96, 348);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(166, 22);
-            this.textBox4.TabIndex = 3;
+            this.txtAjoutTelParent.Location = new System.Drawing.Point(96, 348);
+            this.txtAjoutTelParent.Name = "txtAjoutTelParent";
+            this.txtAjoutTelParent.Size = new System.Drawing.Size(166, 22);
+            this.txtAjoutTelParent.TabIndex = 3;
             // 
-            // textBox8
+            // txtAjoutTelEleve
             // 
-            this.textBox8.Location = new System.Drawing.Point(96, 273);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(166, 22);
-            this.textBox8.TabIndex = 7;
+            this.txtAjoutTelEleve.Location = new System.Drawing.Point(96, 273);
+            this.txtAjoutTelEleve.Name = "txtAjoutTelEleve";
+            this.txtAjoutTelEleve.Size = new System.Drawing.Size(166, 22);
+            this.txtAjoutTelEleve.TabIndex = 7;
             // 
             // btnValider
             // 
@@ -190,22 +190,20 @@ namespace GestionInfirmerieGUI
             // 
             // cmbAjoutTiersTemps
             // 
+            this.cmbAjoutTiersTemps.Cursor = System.Windows.Forms.Cursors.Default;
             this.cmbAjoutTiersTemps.FormattingEnabled = true;
-            this.cmbAjoutTiersTemps.Items.AddRange(new object[] {
-            "Oui",
-            "Non"});
             this.cmbAjoutTiersTemps.Location = new System.Drawing.Point(506, 112);
             this.cmbAjoutTiersTemps.Name = "cmbAjoutTiersTemps";
             this.cmbAjoutTiersTemps.Size = new System.Drawing.Size(165, 24);
             this.cmbAjoutTiersTemps.TabIndex = 18;
             // 
-            // rtxtAjoutCommentaireSante
+            // txtAjoutCommentaireSante
             // 
-            this.rtxtAjoutCommentaireSante.Location = new System.Drawing.Point(506, 206);
-            this.rtxtAjoutCommentaireSante.Name = "rtxtAjoutCommentaireSante";
-            this.rtxtAjoutCommentaireSante.Size = new System.Drawing.Size(246, 78);
-            this.rtxtAjoutCommentaireSante.TabIndex = 19;
-            this.rtxtAjoutCommentaireSante.Text = "";
+            this.txtAjoutCommentaireSante.Location = new System.Drawing.Point(506, 206);
+            this.txtAjoutCommentaireSante.Name = "txtAjoutCommentaireSante";
+            this.txtAjoutCommentaireSante.Size = new System.Drawing.Size(246, 78);
+            this.txtAjoutCommentaireSante.TabIndex = 19;
+            this.txtAjoutCommentaireSante.Text = "";
             // 
             // cmbAjoutClasse
             // 
@@ -221,7 +219,7 @@ namespace GestionInfirmerieGUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.cmbAjoutClasse);
-            this.Controls.Add(this.rtxtAjoutCommentaireSante);
+            this.Controls.Add(this.txtAjoutCommentaireSante);
             this.Controls.Add(this.cmbAjoutTiersTemps);
             this.Controls.Add(this.lblAjoutClasse);
             this.Controls.Add(this.lblAjoutCommentaireSante);
@@ -233,11 +231,11 @@ namespace GestionInfirmerieGUI
             this.Controls.Add(this.lblAjoutNom);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnValider);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtAjoutTelEleve);
+            this.Controls.Add(this.txtAjoutTelParent);
+            this.Controls.Add(this.txtAjoutDateNaissance);
+            this.Controls.Add(this.txtAjoutPrenom);
+            this.Controls.Add(this.txtAjoutNom);
             this.Name = "FrmAjoutEleve";
             this.Text = "FrmAjoutEleve";
             this.ResumeLayout(false);
@@ -247,11 +245,11 @@ namespace GestionInfirmerieGUI
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtAjoutNom;
+        private System.Windows.Forms.TextBox txtAjoutPrenom;
+        private System.Windows.Forms.TextBox txtAjoutDateNaissance;
+        private System.Windows.Forms.TextBox txtAjoutTelParent;
+        private System.Windows.Forms.TextBox txtAjoutTelEleve;
         private System.Windows.Forms.Button btnValider;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label lblAjoutNom;
@@ -263,7 +261,7 @@ namespace GestionInfirmerieGUI
         private System.Windows.Forms.Label lblAjoutCommentaireSante;
         private System.Windows.Forms.Label lblAjoutClasse;
         private System.Windows.Forms.ComboBox cmbAjoutTiersTemps;
-        private System.Windows.Forms.RichTextBox rtxtAjoutCommentaireSante;
+        private System.Windows.Forms.RichTextBox txtAjoutCommentaireSante;
         private System.Windows.Forms.ComboBox cmbAjoutClasse;
     }
 }

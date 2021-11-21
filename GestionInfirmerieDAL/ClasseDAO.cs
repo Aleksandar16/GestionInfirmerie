@@ -21,36 +21,41 @@ namespace GestionInfirmerieDAL
         }
 
         // Cette méthode retourne une List contenant les objets Classe contenus dans la table CLASSE
-        public static List<Classe> GetClasse()
+
+        public static List<Classe> GetLesClasses()
         {
             int id;
             string libelle;
             Classe uneClasse;
-            // Connexion à la BD
+
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
-            // Création d'une liste vide d'objets Classe
+
             List<Classe> lesClasses = new List<Classe>();
+
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = " SELECT * FROM CLASSE";
+            cmd.CommandText = "SELECT * FROM CLASSE";
+
             SqlDataReader monReader = cmd.ExecuteReader();
-            // Remplissage de la liste
+
             while (monReader.Read())
             {
-                id = Int32.Parse(monReader["id_classe"].ToString());
-                if (monReader["libelle_classe"] == DBNull.Value)
+                id = Int32.Parse(monReader["Id_classe"].ToString());
+
+                if (monReader["Libelle_classe"] == DBNull.Value)
                 {
                     libelle = default(string);
                 }
                 else
                 {
-                    libelle = monReader["libelle_classe"].ToString();
+                    libelle = monReader["Libelle_classe"].ToString();
                 }
                 uneClasse = new Classe(id, libelle);
                 lesClasses.Add(uneClasse);
             }
             // Fermeture de la connexion
             maConnexion.Close();
+
             return lesClasses;
         }
     }

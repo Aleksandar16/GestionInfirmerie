@@ -31,7 +31,7 @@ namespace GestionInfirmerieDAL
             string num_tel_parent_eleve;
             bool tiers_temps_eleve;
             string commentaire_sante_eleve;
-            int id_classe_eleve;
+
             Eleve unEleve;
             // Connexion à la BD
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
@@ -55,7 +55,6 @@ namespace GestionInfirmerieDAL
                     num_tel_parent_eleve = default(string);
                     tiers_temps_eleve = default(bool);
                     commentaire_sante_eleve = default(string);
-                    id_classe_eleve = default(int);
                 }
                 else
                 {
@@ -66,10 +65,9 @@ namespace GestionInfirmerieDAL
                     num_tel_parent_eleve = monReader["num_tel_parent_eleve"].ToString();
                     tiers_temps_eleve = (bool)monReader["tiers_temps_eleve"];
                     commentaire_sante_eleve = monReader["commentaire_sante_eleve"].ToString();
-                    id_classe_eleve = (int)monReader["id_classe_eleve"];
                 }
                 unEleve = new Eleve(id, nom, prenom, date_naissance_eleve, num_portable_eleve, num_tel_parent_eleve, tiers_temps_eleve, 
-                    commentaire_sante_eleve, id_classe_eleve);
+                    commentaire_sante_eleve);
                 lesEleves.Add(unEleve);
             }
             // Fermeture de la connexion
@@ -86,7 +84,7 @@ namespace GestionInfirmerieDAL
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
             cmd.CommandText = "INSERT INTO ELEVE values('" + unEleve.Nom + unEleve.Prenom + unEleve.Date_naissance + unEleve.Num_portable +
-                unEleve.Num_portable_parent + unEleve.Tiers_temps + unEleve.Commentaire_sante + unEleve.Id_classe + "')";
+                unEleve.Num_portable_parent + unEleve.Tiers_temps + unEleve.Commentaire_sante + "')";
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
             maConnexion.Close();
@@ -103,7 +101,7 @@ namespace GestionInfirmerieDAL
             cmd.Connection = maConnexion;
             cmd.CommandText = "UPDATE ELEVE SET nom_eleve = '" + unEleve.Nom + "' prenom_eleve = '" + unEleve.Prenom + "' date_naissance_eleve = '" + unEleve.Date_naissance + "'" +
                 " num_portable_eleve = '" + unEleve.Num_portable + "' num_tel_parent_eleve = '" + unEleve.Num_portable_parent + "' tiers_temps_eleve = '" + unEleve.Tiers_temps + "'" +
-                " commenataire_sante_eleve = '" + unEleve.Commentaire_sante + "' id_classe_eleve = '" + unEleve.Id_classe + "' WHERE id_eleve = " + unEleve.Id;
+                " commenataire_sante_eleve = '" + unEleve.Commentaire_sante + "' WHERE id_eleve = " + unEleve.Id;
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
             maConnexion.Close();

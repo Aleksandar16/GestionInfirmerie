@@ -18,8 +18,18 @@ namespace GestionInfirmerieGUI
         public FrmDetailEleve()
         {
             InitializeComponent();
-            GestionEleve.SetchaineConnexion(ConfigurationManager.ConnectionStrings["GestionInfirmerie"]);
-            List<Eleve> adherents = GestionEleve.GetEleve();
+            GestionEleve.SetchaineConnexion(ConfigurationManager.ConnectionStrings
+            ["GestionInfirmeri"]);
+
+            dataGridViewEleve.AutoGenerateColumns = true;
+
+            this.dataGridViewEleve.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+
+            List<Eleve> liste = new List<Eleve>();
+            liste = GestionEleve.GetEleve();
+
+            dataGridViewEleve.DataSource = liste;
+        
         }
     }
 }
