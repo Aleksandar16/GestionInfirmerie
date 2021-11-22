@@ -31,6 +31,7 @@ namespace GestionInfirmerieDAL
             string num_tel_parent_eleve;
             bool tiers_temps_eleve;
             string commentaire_sante_eleve;
+            Classe classe;
 
             Eleve unEleve;
             // Connexion à la BD
@@ -55,6 +56,7 @@ namespace GestionInfirmerieDAL
                     num_tel_parent_eleve = default(string);
                     tiers_temps_eleve = default(bool);
                     commentaire_sante_eleve = default(string);
+                    classe = default(Classe);
                 }
                 else
                 {
@@ -65,9 +67,10 @@ namespace GestionInfirmerieDAL
                     num_tel_parent_eleve = monReader["num_tel_parent_eleve"].ToString();
                     tiers_temps_eleve = (bool)monReader["tiers_temps_eleve"];
                     commentaire_sante_eleve = monReader["commentaire_sante_eleve"].ToString();
+                    classe = new Classe((int)monReader["id_classe_eleve"]);
                 }
                 unEleve = new Eleve(id, nom, prenom, date_naissance_eleve, num_portable_eleve, num_tel_parent_eleve, tiers_temps_eleve, 
-                    commentaire_sante_eleve);
+                    commentaire_sante_eleve, classe);
                 lesEleves.Add(unEleve);
             }
             // Fermeture de la connexion

@@ -65,6 +65,12 @@ namespace GestionInfirmerieGUI
             TiersTempsColumn.HeaderText = "Tiers temps";
             TiersTempsColumn.Width = 120;
 
+            DataGridViewTextBoxColumn CommentaireSanteColumn = new DataGridViewTextBoxColumn();
+
+            CommentaireSanteColumn.DataPropertyName = "Commentaire_sante";
+            CommentaireSanteColumn.HeaderText = "Commentaire santé";
+            CommentaireSanteColumn.Width = 120;
+
             dataGridViewEleve.Columns.Add(IdColumn);
             dataGridViewEleve.Columns.Add(NomColumn);
             dataGridViewEleve.Columns.Add(PrenomColumn);
@@ -72,6 +78,7 @@ namespace GestionInfirmerieGUI
             dataGridViewEleve.Columns.Add(NumTelEleveColumn);
             dataGridViewEleve.Columns.Add(NumTelParentColumn);
             dataGridViewEleve.Columns.Add(TiersTempsColumn);
+            dataGridViewEleve.Columns.Add(CommentaireSanteColumn);
 
             dataGridViewEleve.ColumnHeadersVisible = true;
             DataGridViewCellStyle columnHeaderStyle = new DataGridViewCellStyle();
