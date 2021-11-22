@@ -26,9 +26,9 @@ namespace GestionInfirmerieGUI
             liste = GestionClasse.GetLesClasses();
             // Rattachement de la List à la source de données du comboBox
 
-            cmbAjoutClasse.ValueMember = "id_classe";
+            cmbAjoutClasse.ValueMember = "Id";
 
-            cmbAjoutClasse.DisplayMember = "libelle_classe";
+            cmbAjoutClasse.DisplayMember = "Libelle";
 
             cmbAjoutClasse.DataSource = liste;
 
