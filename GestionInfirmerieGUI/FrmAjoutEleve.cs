@@ -41,7 +41,7 @@ namespace GestionInfirmerieGUI
 
         private void btnValider_Click(object sender, EventArgs e)
         {
-            /*bool tiersTempsBool = true;
+            bool tiersTempsBool = true;
 
             if (Convert.ToBoolean(cmbAjoutTiersTemps.SelectedValue = OuiTiersTemps))
             {
@@ -52,7 +52,10 @@ namespace GestionInfirmerieGUI
                 tiersTempsBool = false;
             }
 
-            Eleve unEleve = new Eleve(0, txtAjoutNom.Text, txtAjoutPrenom.Text, txtAjoutDateNaissance.Text, txtAjoutTelEleve.Text, txtAjoutTelParent.Text, tiersTempsBool, txtAjoutCommentaireSante.Text, (Classe)cmbAjoutClasse.SelectedItem);*/
+            Eleve unEleve = new Eleve(0, txtAjoutNom.Text, txtAjoutPrenom.Text, dtpAjoutDateNaissance.Value, txtAjoutTelEleve.Text, txtAjoutTelParent.Text,
+                tiersTempsBool, txtAjoutCommentaireSante.Text, (Classe)cmbAjoutClasse.SelectedItem);
+
+            GestionEleve.CreerEleve(unEleve);
         }
     }
 }

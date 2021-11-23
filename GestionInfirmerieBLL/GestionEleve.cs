@@ -35,14 +35,14 @@ namespace GestionInfirmerieBLL
         }
         // Méthode qui renvoi l’objet Utilisateur en l'ajoutant à la
         // BD avec la méthode AjoutUtilisateur de la DAL
-        public static int CreerEleve(Eleve ut)
+        public static int CreerEleve(Eleve unEleve)
         {
-            return EleveDAO.AjoutEleve(ut);
+            return EleveDAO.AjoutEleve(unEleve);
         }
         // Méthode qui modifie un nouvel Utilisateur avec la méthode UpdateUtilisateur de la DAL
-        public static int ModifierEleve(Eleve ut)
+        public static int ModifierEleve(Eleve unEleve)
         {
-            return EleveDAO.UpdateEleve(ut);
+            return EleveDAO.UpdateEleve(unEleve);
         }
         // Méthode qui supprime un Utilisateur avec la méthode DeleteUtilisateur de la DAL
         public static int SupprimerEleve(int id)

@@ -10,9 +10,14 @@ namespace GestionInfirmerieBO
     {
         private int Id_classe;
         private string Libelle_classe;
-        public Classe(string libelle_classe)
+
+        public Classe()
         {
-            Libelle_classe = Libelle;
+        }
+
+        public Classe(int Id)
+        {
+            Id_classe = Id;
         }
         public Classe(int Id, string Libelle)
         {

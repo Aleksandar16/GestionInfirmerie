@@ -31,7 +31,7 @@ namespace GestionInfirmerieDAL
             string num_tel_parent_eleve;
             bool tiers_temps_eleve;
             string commentaire_sante_eleve;
-            Classe classe;
+            string libelle_classe;
 
             Eleve unEleve;
             // Connexion à la BD
@@ -40,7 +40,7 @@ namespace GestionInfirmerieDAL
             List<Eleve> lesEleves = new List<Eleve>();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = " SELECT * FROM ELEVE";
+            cmd.CommandText = " SELECT * FROM ELEVE, CLASSE WHERE ELEVE.id_classe = CLASSE.id_classe";
             SqlDataReader monReader = cmd.ExecuteReader();
             // Remplissage de la liste
             while (monReader.Read())
@@ -56,7 +56,7 @@ namespace GestionInfirmerieDAL
                     num_tel_parent_eleve = default(string);
                     tiers_temps_eleve = default(bool);
                     commentaire_sante_eleve = default(string);
-                    classe = default(Classe);
+                    libelle_classe = default(string);
                 }
                 else
                 {
@@ -67,14 +67,15 @@ namespace GestionInfirmerieDAL
                     num_tel_parent_eleve = monReader["num_tel_parent_eleve"].ToString();
                     tiers_temps_eleve = (bool)monReader["tiers_temps_eleve"];
                     commentaire_sante_eleve = monReader["commentaire_sante_eleve"].ToString();
-                    classe = new Classe((int)monReader["id_classe_eleve"]);
+                    libelle_classe = monReader["libelle_classe"].ToString();
                 }
                 unEleve = new Eleve(id, nom, prenom, date_naissance_eleve, num_portable_eleve, num_tel_parent_eleve, tiers_temps_eleve, 
-                    commentaire_sante_eleve, classe);
+                    commentaire_sante_eleve, libelle_classe);
                 lesEleves.Add(unEleve);
             }
             // Fermeture de la connexion
             maConnexion.Close();
+
             return lesEleves;
         }
 

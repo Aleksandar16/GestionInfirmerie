@@ -31,7 +31,6 @@ namespace GestionInfirmerieGUI
         {
             this.txtAjoutNom = new System.Windows.Forms.TextBox();
             this.txtAjoutPrenom = new System.Windows.Forms.TextBox();
-            this.txtAjoutDateNaissance = new System.Windows.Forms.TextBox();
             this.txtAjoutTelParent = new System.Windows.Forms.TextBox();
             this.txtAjoutTelEleve = new System.Windows.Forms.TextBox();
             this.btnValider = new System.Windows.Forms.Button();
@@ -47,6 +46,7 @@ namespace GestionInfirmerieGUI
             this.cmbAjoutTiersTemps = new System.Windows.Forms.ComboBox();
             this.txtAjoutCommentaireSante = new System.Windows.Forms.RichTextBox();
             this.cmbAjoutClasse = new System.Windows.Forms.ComboBox();
+            this.dtpAjoutDateNaissance = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // txtAjoutNom
@@ -62,13 +62,6 @@ namespace GestionInfirmerieGUI
             this.txtAjoutPrenom.Name = "txtAjoutPrenom";
             this.txtAjoutPrenom.Size = new System.Drawing.Size(166, 22);
             this.txtAjoutPrenom.TabIndex = 1;
-            // 
-            // txtAjoutDateNaissance
-            // 
-            this.txtAjoutDateNaissance.Location = new System.Drawing.Point(96, 189);
-            this.txtAjoutDateNaissance.Name = "txtAjoutDateNaissance";
-            this.txtAjoutDateNaissance.Size = new System.Drawing.Size(166, 22);
-            this.txtAjoutDateNaissance.TabIndex = 2;
             // 
             // txtAjoutTelParent
             // 
@@ -213,11 +206,19 @@ namespace GestionInfirmerieGUI
             this.cmbAjoutClasse.Size = new System.Drawing.Size(162, 24);
             this.cmbAjoutClasse.TabIndex = 20;
             // 
+            // dtpAjoutDateNaissance
+            // 
+            this.dtpAjoutDateNaissance.Location = new System.Drawing.Point(94, 204);
+            this.dtpAjoutDateNaissance.Name = "dtpAjoutDateNaissance";
+            this.dtpAjoutDateNaissance.Size = new System.Drawing.Size(217, 22);
+            this.dtpAjoutDateNaissance.TabIndex = 21;
+            // 
             // FrmAjoutEleve
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dtpAjoutDateNaissance);
             this.Controls.Add(this.cmbAjoutClasse);
             this.Controls.Add(this.txtAjoutCommentaireSante);
             this.Controls.Add(this.cmbAjoutTiersTemps);
@@ -233,7 +234,6 @@ namespace GestionInfirmerieGUI
             this.Controls.Add(this.btnValider);
             this.Controls.Add(this.txtAjoutTelEleve);
             this.Controls.Add(this.txtAjoutTelParent);
-            this.Controls.Add(this.txtAjoutDateNaissance);
             this.Controls.Add(this.txtAjoutPrenom);
             this.Controls.Add(this.txtAjoutNom);
             this.Name = "FrmAjoutEleve";
@@ -247,7 +247,6 @@ namespace GestionInfirmerieGUI
 
         private System.Windows.Forms.TextBox txtAjoutNom;
         private System.Windows.Forms.TextBox txtAjoutPrenom;
-        private System.Windows.Forms.TextBox txtAjoutDateNaissance;
         private System.Windows.Forms.TextBox txtAjoutTelParent;
         private System.Windows.Forms.TextBox txtAjoutTelEleve;
         private System.Windows.Forms.Button btnValider;
@@ -263,5 +262,6 @@ namespace GestionInfirmerieGUI
         private System.Windows.Forms.ComboBox cmbAjoutTiersTemps;
         private System.Windows.Forms.RichTextBox txtAjoutCommentaireSante;
         private System.Windows.Forms.ComboBox cmbAjoutClasse;
+        private System.Windows.Forms.DateTimePicker dtpAjoutDateNaissance;
     }
 }
