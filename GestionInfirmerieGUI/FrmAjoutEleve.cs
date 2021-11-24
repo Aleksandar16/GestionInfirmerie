@@ -15,8 +15,8 @@ namespace GestionInfirmerieGUI
 {
     public partial class FrmAjoutEleve : Form
     {
-        public const string OuiTiersTemps = "Oui";
-        public const string NonTiersTemps = "Non";
+        public const bool OuiTiersTemps = true;
+        public const bool NonTiersTemps = false;
         public FrmAjoutEleve()
         {
 
@@ -32,7 +32,7 @@ namespace GestionInfirmerieGUI
 
             cmbAjoutClasse.DataSource = liste;
 
-            List<string> tiersTemps = new List<string>();
+            List<bool> tiersTemps = new List<bool>();
 
             tiersTemps.Add(OuiTiersTemps);
             tiersTemps.Add(NonTiersTemps);
@@ -41,21 +41,15 @@ namespace GestionInfirmerieGUI
 
         private void btnValider_Click(object sender, EventArgs e)
         {
-            bool tiersTempsBool = true;
-
-            if (Convert.ToBoolean(cmbAjoutTiersTemps.SelectedValue = OuiTiersTemps))
-            {
-                tiersTempsBool = true;
-            }
-            else
-            {
-                tiersTempsBool = false;
-            }
-
             Eleve unEleve = new Eleve(0, txtAjoutNom.Text, txtAjoutPrenom.Text, dtpAjoutDateNaissance.Value, txtAjoutTelEleve.Text, txtAjoutTelParent.Text,
-                tiersTempsBool, txtAjoutCommentaireSante.Text, (Classe)cmbAjoutClasse.SelectedItem);
+                (bool)cmbAjoutTiersTemps.SelectedValue, txtAjoutCommentaireSante.Text, (Classe)cmbAjoutClasse.SelectedValue);
 
             GestionEleve.CreerEleve(unEleve);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

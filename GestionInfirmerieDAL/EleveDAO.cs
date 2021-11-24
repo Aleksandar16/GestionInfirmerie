@@ -31,7 +31,7 @@ namespace GestionInfirmerieDAL
             string num_tel_parent_eleve;
             bool tiers_temps_eleve;
             string commentaire_sante_eleve;
-            string libelle_classe;
+            Classe classe;
 
             Eleve unEleve;
             // Connexion à la BD
@@ -46,31 +46,17 @@ namespace GestionInfirmerieDAL
             while (monReader.Read())
             {
                 id = Int32.Parse(monReader["id_eleve"].ToString());
-                if (monReader["id_eleve"] == DBNull.Value)
-                {
-                    id = default(int);
-                    nom = default(string);
-                    prenom = default(string);
-                    date_naissance_eleve = default(DateTime);
-                    num_portable_eleve = default(string);
-                    num_tel_parent_eleve = default(string);
-                    tiers_temps_eleve = default(bool);
-                    commentaire_sante_eleve = default(string);
-                    libelle_classe = default(string);
-                }
-                else
-                {
-                    nom = monReader["nom_eleve"].ToString();
-                    prenom = monReader["prenom_eleve"].ToString();
-                    date_naissance_eleve = (DateTime)monReader["date_naissance_eleve"];
-                    num_portable_eleve = monReader["num_portable_eleve"].ToString();
-                    num_tel_parent_eleve = monReader["num_tel_parent_eleve"].ToString();
-                    tiers_temps_eleve = (bool)monReader["tiers_temps_eleve"];
-                    commentaire_sante_eleve = monReader["commentaire_sante_eleve"].ToString();
-                    libelle_classe = monReader["libelle_classe"].ToString();
-                }
+                nom = monReader["nom_eleve"].ToString();
+                prenom = monReader["prenom_eleve"].ToString();
+                date_naissance_eleve = (DateTime)monReader["date_naissance_eleve"];
+                num_portable_eleve = monReader["num_portable_eleve"].ToString();
+                num_tel_parent_eleve = monReader["num_tel_parent_eleve"].ToString();
+                tiers_temps_eleve = (bool)monReader["tiers_temps_eleve"];
+                commentaire_sante_eleve = monReader["commentaire_sante_eleve"].ToString();
+                classe = new Classe((int)monReader["id_classe"],monReader["libelle_classe"].ToString());
+
                 unEleve = new Eleve(id, nom, prenom, date_naissance_eleve, num_portable_eleve, num_tel_parent_eleve, tiers_temps_eleve, 
-                    commentaire_sante_eleve, libelle_classe);
+                    commentaire_sante_eleve, classe);
                 lesEleves.Add(unEleve);
             }
             // Fermeture de la connexion
@@ -88,7 +74,7 @@ namespace GestionInfirmerieDAL
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
             cmd.CommandText = "INSERT INTO ELEVE values('" + unEleve.Nom + unEleve.Prenom + unEleve.Date_naissance + unEleve.Num_portable +
-                unEleve.Num_portable_parent + unEleve.Tiers_temps + unEleve.Commentaire_sante + "')";
+                unEleve.Num_portable_parent + unEleve.Tiers_temps + unEleve.Commentaire_sante + unEleve.Classe + "')";
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
             maConnexion.Close();
@@ -105,7 +91,7 @@ namespace GestionInfirmerieDAL
             cmd.Connection = maConnexion;
             cmd.CommandText = "UPDATE ELEVE SET nom_eleve = '" + unEleve.Nom + "' prenom_eleve = '" + unEleve.Prenom + "' date_naissance_eleve = '" + unEleve.Date_naissance + "'" +
                 " num_portable_eleve = '" + unEleve.Num_portable + "' num_tel_parent_eleve = '" + unEleve.Num_portable_parent + "' tiers_temps_eleve = '" + unEleve.Tiers_temps + "'" +
-                " commenataire_sante_eleve = '" + unEleve.Commentaire_sante + "' WHERE id_eleve = " + unEleve.Id;
+                " commenataire_sante_eleve = '" + unEleve.Commentaire_sante + "'" + " id_classe = '" + unEleve.Classe + "' WHERE id_eleve = " + unEleve.Id;
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
             maConnexion.Close();

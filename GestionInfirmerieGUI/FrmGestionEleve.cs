@@ -37,5 +37,21 @@ namespace GestionInfirmerieGUI
             FrmDetailEleve.ShowDialog();
             FrmDetailEleve.Close();
         }
+
+        private void btnModifierEleve_Click(object sender, EventArgs e)
+        {
+            FrmModifierEleve FrmModifierEleve;
+            FrmModifierEleve = new FrmModifierEleve();
+            FrmModifierEleve.ShowDialog();
+            FrmModifierEleve.Close();
+        }
+
+        private void btnSupprimerEleve_Click(object sender, EventArgs e)
+        {
+            FrmSupprimerEleve FrmSupprimerEleve;
+            FrmSupprimerEleve = new FrmSupprimerEleve();
+            FrmSupprimerEleve.ShowDialog();
+            FrmSupprimerEleve.Close();
+        }
     }
 }

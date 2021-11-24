@@ -71,6 +71,18 @@
     <Compile Include="FrmMenu.Designer.cs">
       <DependentUpon>FrmMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmModifierEleve.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmModifierEleve.Designer.cs">
+      <DependentUpon>FrmModifierEleve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSupprimerEleve.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSupprimerEleve.Designer.cs">
+      <DependentUpon>FrmSupprimerEleve.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmAjoutEleve.resx">
@@ -84,6 +96,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMenu.resx">
       <DependentUpon>FrmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModifierEleve.resx">
+      <DependentUpon>FrmModifierEleve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSupprimerEleve.resx">
+      <DependentUpon>FrmSupprimerEleve.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

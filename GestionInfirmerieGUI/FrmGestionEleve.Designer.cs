@@ -33,6 +33,8 @@ namespace GestionInfirmerieGUI
             this.btnVoirEleve = new System.Windows.Forms.Button();
             this.btnAjoutEleve = new System.Windows.Forms.Button();
             this.lblGestionEleve = new System.Windows.Forms.Label();
+            this.btnModifierEleve = new System.Windows.Forms.Button();
+            this.btnSupprimerEleve = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnRetour
@@ -80,11 +82,35 @@ namespace GestionInfirmerieGUI
             this.lblGestionEleve.TabIndex = 3;
             this.lblGestionEleve.Text = "Gestion des élèves";
             // 
+            // btnModifierEleve
+            // 
+            this.btnModifierEleve.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModifierEleve.Location = new System.Drawing.Point(110, 243);
+            this.btnModifierEleve.Name = "btnModifierEleve";
+            this.btnModifierEleve.Size = new System.Drawing.Size(212, 68);
+            this.btnModifierEleve.TabIndex = 4;
+            this.btnModifierEleve.Text = "Modifier un élève";
+            this.btnModifierEleve.UseVisualStyleBackColor = true;
+            this.btnModifierEleve.Click += new System.EventHandler(this.btnModifierEleve_Click);
+            // 
+            // btnSupprimerEleve
+            // 
+            this.btnSupprimerEleve.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSupprimerEleve.Location = new System.Drawing.Point(499, 242);
+            this.btnSupprimerEleve.Name = "btnSupprimerEleve";
+            this.btnSupprimerEleve.Size = new System.Drawing.Size(212, 69);
+            this.btnSupprimerEleve.TabIndex = 5;
+            this.btnSupprimerEleve.Text = "Supprimer un élève";
+            this.btnSupprimerEleve.UseVisualStyleBackColor = true;
+            this.btnSupprimerEleve.Click += new System.EventHandler(this.btnSupprimerEleve_Click);
+            // 
             // FrmGestionEleve
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnSupprimerEleve);
+            this.Controls.Add(this.btnModifierEleve);
             this.Controls.Add(this.lblGestionEleve);
             this.Controls.Add(this.btnAjoutEleve);
             this.Controls.Add(this.btnVoirEleve);
@@ -102,5 +128,7 @@ namespace GestionInfirmerieGUI
         private System.Windows.Forms.Button btnVoirEleve;
         private System.Windows.Forms.Button btnAjoutEleve;
         private System.Windows.Forms.Label lblGestionEleve;
+        private System.Windows.Forms.Button btnModifierEleve;
+        private System.Windows.Forms.Button btnSupprimerEleve;
     }
 }

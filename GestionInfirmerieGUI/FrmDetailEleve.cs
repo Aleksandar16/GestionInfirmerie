@@ -45,7 +45,7 @@ namespace GestionInfirmerieGUI
 
             DateColumn.DataPropertyName = "Date_naissance";
             DateColumn.HeaderText = "Date";
-            DateColumn.Width = 100;
+            DateColumn.Width = 80;
 
             DataGridViewTextBoxColumn NumTelEleveColumn = new DataGridViewTextBoxColumn();
 
@@ -73,9 +73,9 @@ namespace GestionInfirmerieGUI
 
             DataGridViewTextBoxColumn ClasseEleveColumn = new DataGridViewTextBoxColumn();
 
-            ClasseEleveColumn.DataPropertyName = "Libelle";
+            ClasseEleveColumn.DataPropertyName = "Classe";
             ClasseEleveColumn.HeaderText = "Classe Eleve";
-            ClasseEleveColumn.Width = 160;
+            ClasseEleveColumn.Width = 150;
 
             dataGridViewEleve.Columns.Add(IdColumn);
             dataGridViewEleve.Columns.Add(NomColumn);
@@ -100,6 +100,11 @@ namespace GestionInfirmerieGUI
 
             dataGridViewEleve.DataSource = liste;
 
+        }
+
+        private void btnRetour_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

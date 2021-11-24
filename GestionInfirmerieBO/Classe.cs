@@ -8,24 +8,26 @@ namespace GestionInfirmerieBO
 {
     public class Classe
     {
-        private int Id_classe;
-        private string Libelle_classe;
+        private int id;
+        private string libelle;
 
-        public Classe()
+        public Classe() { }
+        public Classe(int id, string libelle)
         {
+            this.id = id;
+            this.libelle = libelle;
         }
 
-        public Classe(int Id)
+        public int Id
         {
-            Id_classe = Id;
-        }
-        public Classe(int Id, string Libelle)
-        {
-            Id_classe = Id;
-            Libelle_classe = Libelle;
+            get => this.id;
+            set => this.id = value;
         }
 
-        public int Id { get => Id_classe; set => Id_classe = value; }
-        public string Libelle { get => Libelle_classe; set => Libelle_classe = value; }
+        public string Libelle
+        {
+            get => this.libelle;
+            set => this.libelle = value;
+        }
     }
 }
