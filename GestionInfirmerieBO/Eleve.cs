@@ -21,10 +21,17 @@ namespace GestionInfirmerieBO
         //Sauvegarde de l'id de l'élève pour appliquer les modifications et la suppression
         private static Eleve eleveId;
 
-        public Eleve() { }
-        public Eleve(int id)
+        public Eleve(string nom_eleve, string prenom_eleve, DateTime date_naissance_eleve, string num_portable_eleve,
+             string num_portable_parent_eleve, bool tiers_temps_eleve, string commentaire_sante_eleve, Classe classe)
         {
-            this.Id = id;
+            this.Nom_eleve = nom_eleve;
+            this.Prenom_eleve = prenom_eleve;
+            this.Date_naissance_eleve = date_naissance_eleve;
+            this.Num_portable_eleve = num_portable_eleve;
+            this.Num_portable_parent_eleve = num_portable_parent_eleve;
+            this.Tiers_temps_eleve = tiers_temps_eleve;
+            this.Commentaire_sante_eleve = commentaire_sante_eleve;
+            this.classe = classe;
         }
 
         public Eleve(int id_eleve, string nom_eleve, string prenom_eleve, DateTime date_naissance_eleve, string num_portable_eleve,
