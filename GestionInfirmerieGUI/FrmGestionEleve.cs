@@ -23,7 +23,7 @@ namespace GestionInfirmerieGUI
         }
 
         private void btnAjoutEleve_Click(object sender, EventArgs e)
-        {
+        {    
             FrmAjoutEleve FrmAjoutEleve;
             FrmAjoutEleve = new FrmAjoutEleve();
             FrmAjoutEleve.ShowDialog();

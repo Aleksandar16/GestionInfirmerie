@@ -93,7 +93,7 @@ namespace GestionInfirmerieGUI
                 liste = GestionEleve.GetEleve();
 
                 dataGridViewEleve.DataSource = liste;
-
+                
         }
 
         private void btnRetour_Click(object sender, EventArgs e)

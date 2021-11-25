@@ -44,9 +44,9 @@ namespace GestionInfirmerieGUI
             this.lblAjoutCommentaireSante = new System.Windows.Forms.Label();
             this.lblAjoutClasse = new System.Windows.Forms.Label();
             this.cmbAjoutTiersTemps = new System.Windows.Forms.ComboBox();
-            this.txtAjoutCommentaireSante = new System.Windows.Forms.RichTextBox();
             this.cmbAjoutClasse = new System.Windows.Forms.ComboBox();
             this.dtpAjoutDateNaissance = new System.Windows.Forms.DateTimePicker();
+            this.txtAjoutCommentaireSante = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // txtAjoutNom
@@ -192,14 +192,6 @@ namespace GestionInfirmerieGUI
             this.cmbAjoutTiersTemps.Size = new System.Drawing.Size(165, 24);
             this.cmbAjoutTiersTemps.TabIndex = 18;
             // 
-            // txtAjoutCommentaireSante
-            // 
-            this.txtAjoutCommentaireSante.Location = new System.Drawing.Point(506, 206);
-            this.txtAjoutCommentaireSante.Name = "txtAjoutCommentaireSante";
-            this.txtAjoutCommentaireSante.Size = new System.Drawing.Size(246, 78);
-            this.txtAjoutCommentaireSante.TabIndex = 19;
-            this.txtAjoutCommentaireSante.Text = "";
-            // 
             // cmbAjoutClasse
             // 
             this.cmbAjoutClasse.FormattingEnabled = true;
@@ -214,6 +206,14 @@ namespace GestionInfirmerieGUI
             this.dtpAjoutDateNaissance.Name = "dtpAjoutDateNaissance";
             this.dtpAjoutDateNaissance.Size = new System.Drawing.Size(217, 22);
             this.dtpAjoutDateNaissance.TabIndex = 21;
+            // 
+            // txtAjoutCommentaireSante
+            // 
+            this.txtAjoutCommentaireSante.Location = new System.Drawing.Point(506, 206);
+            this.txtAjoutCommentaireSante.Name = "txtAjoutCommentaireSante";
+            this.txtAjoutCommentaireSante.Size = new System.Drawing.Size(246, 78);
+            this.txtAjoutCommentaireSante.TabIndex = 19;
+            this.txtAjoutCommentaireSante.Text = "";
             // 
             // FrmAjoutEleve
             // 
@@ -262,8 +262,8 @@ namespace GestionInfirmerieGUI
         private System.Windows.Forms.Label lblAjoutCommentaireSante;
         private System.Windows.Forms.Label lblAjoutClasse;
         private System.Windows.Forms.ComboBox cmbAjoutTiersTemps;
-        private System.Windows.Forms.RichTextBox txtAjoutCommentaireSante;
         private System.Windows.Forms.ComboBox cmbAjoutClasse;
         private System.Windows.Forms.DateTimePicker dtpAjoutDateNaissance;
+        private System.Windows.Forms.RichTextBox txtAjoutCommentaireSante;
     }
 }

@@ -41,12 +41,22 @@ namespace GestionInfirmerieGUI
 
         private void btnValider_Click(object sender, EventArgs e)
         {
-            Eleve unEleve = new Eleve(0, txtAjoutNom.Text, txtAjoutPrenom.Text, dtpAjoutDateNaissance.Value, txtAjoutTelEleve.Text, txtAjoutTelParent.Text,
+            // vérification que les champs ne sont pas vides
+            if (txtAjoutNom.Text == string.Empty || txtAjoutPrenom.Text == string.Empty || dtpAjoutDateNaissance.Text == string.Empty || txtAjoutTelEleve.Text == string.Empty || 
+                txtAjoutTelParent.Text == string.Empty || cmbAjoutTiersTemps.Text == string.Empty || txtAjoutCommentaireSante.Text == string.Empty || cmbAjoutClasse.Text == string.Empty)
+            {
+                MessageBox.Show("Vous devez remplir tous les champs !");
+            }
+            else
+            {
+                Eleve unEleve = new Eleve(0, txtAjoutNom.Text, txtAjoutPrenom.Text, dtpAjoutDateNaissance.Value, txtAjoutTelEleve.Text, txtAjoutTelParent.Text,
                 (bool)cmbAjoutTiersTemps.SelectedValue, txtAjoutCommentaireSante.Text, (int)cmbAjoutClasse.SelectedValue, (int)cmbAjoutClasse.SelectedValue);
 
-            GestionEleve.CreerEleve(unEleve);
+                GestionEleve.CreerEleve(unEleve);
 
-            MessageBox.Show("Votre saisie a bien été enregistré.");
+                MessageBox.Show("Votre saisie a bien été enregistré.");
+            }
+
         }
 
         private void button2_Click(object sender, EventArgs e)
