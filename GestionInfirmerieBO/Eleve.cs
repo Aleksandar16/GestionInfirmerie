@@ -80,5 +80,11 @@ namespace GestionInfirmerieBO
         public int Id_Classe { get => this.Id_classe; set => this.Id_classe = value; }
         public string Libelle { get => this.Libelle_classe; set => this.Libelle_classe = value; }
         public int Id_Classe_E { get => this.Id_Classe_Eleve; set => this.Id_Classe_Eleve = value; }
+        public string Full_name {
+            get
+            {
+                return Nom + " " + Prenom;
+            }
+        }
     }
 }

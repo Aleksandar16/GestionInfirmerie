@@ -39,8 +39,8 @@ namespace GestionInfirmerieGUI
                 DataGridViewTextBoxColumn DateColumn = new DataGridViewTextBoxColumn();
 
                 DateColumn.DataPropertyName = "Date_naissance";
-                DateColumn.HeaderText = "Date";
-                DateColumn.Width = 80;
+                DateColumn.HeaderText = "Date de naissance";
+                DateColumn.Width = 160;
 
                 DataGridViewTextBoxColumn NumTelEleveColumn = new DataGridViewTextBoxColumn();
 

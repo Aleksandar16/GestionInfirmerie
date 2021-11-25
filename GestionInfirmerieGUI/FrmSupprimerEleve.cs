@@ -25,7 +25,7 @@ namespace GestionInfirmerieGUI
 
             cmbSupprimer.ValueMember = "Id";
 
-            cmbSupprimer.DisplayMember = "Nom";
+            cmbSupprimer.DisplayMember = "Full_name";
 
             cmbSupprimer.DataSource = liste;
         }
@@ -39,12 +39,16 @@ namespace GestionInfirmerieGUI
         {
             Eleve unEleve = new Eleve((int)cmbSupprimer.SelectedValue);
 
-            GestionEleve.SupprimerEleve(unEleve);
-
-            if (MessageBox.Show(this, "Vous allez retourner sur le menu de gestion des élèves", "Enregistrement", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            DialogResult dialogResult = MessageBox.Show("L'élève a bien été supprimer de la base de données.", "Enregistrement", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-                MessageBox.Show("L'élève a bien été supprimer de la base de données.");
+                GestionEleve.SupprimerEleve(unEleve);
             }
+            else if (dialogResult == DialogResult.No)
+            {
+                MessageBox.Show("Vous allez retourner au menu de gestion des élèves");
+            }
+
             this.Close();
         }
     }

@@ -71,6 +71,12 @@
     <Compile Include="FrmMenu.Designer.cs">
       <DependentUpon>FrmMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmModificationEleve.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmModificationEleve.Designer.cs">
+      <DependentUpon>FrmModificationEleve.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmModifierEleve.cs">
       <SubType>Form</SubType>
     </Compile>

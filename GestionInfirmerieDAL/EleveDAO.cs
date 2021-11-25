@@ -65,7 +65,7 @@ namespace GestionInfirmerieDAL
             return lesEleves;
         }
 
-        // Cette méthode insert un nouvel eleve passé en paramètre dans la BD
+        // Cette méthode insert un nouvel élève passé en paramètre dans la BD
         public static int AjoutEleve(Eleve unEleve)
         {
             int nbEnr;
@@ -80,7 +80,7 @@ namespace GestionInfirmerieDAL
             maConnexion.Close();
             return nbEnr;
         }
-        // Cette méthode modifie un eleve passé en paramètre dans la BD
+        // Cette méthode modifie un élève passé en paramètre dans la BD
         public static int UpdateEleve(Eleve unEleve)
         {
             int nbEnr;
@@ -97,7 +97,7 @@ namespace GestionInfirmerieDAL
             maConnexion.Close();
             return nbEnr;
         }
-        // Cette méthode supprime de la BD un eleve dont l'id est passé en paramètre
+        // Cette méthode supprime de la BD un élève passé en paramètre
         public static int DeleteEleve(Eleve unEleve)
         {
             int nbEnr;
