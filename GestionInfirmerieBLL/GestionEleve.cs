@@ -45,9 +45,9 @@ namespace GestionInfirmerieBLL
             return EleveDAO.UpdateEleve(unEleve);
         }
         // Méthode qui supprime un Utilisateur avec la méthode DeleteUtilisateur de la DAL
-        public static int SupprimerEleve(int id)
+        public static int SupprimerEleve(Eleve unEleve)
         {
-            return EleveDAO.DeleteEleve(id);
+            return EleveDAO.DeleteEleve(unEleve);
         }
     }
 }

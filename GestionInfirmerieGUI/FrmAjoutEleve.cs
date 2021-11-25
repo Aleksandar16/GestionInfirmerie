@@ -45,6 +45,11 @@ namespace GestionInfirmerieGUI
                 (bool)cmbAjoutTiersTemps.SelectedValue, txtAjoutCommentaireSante.Text, (int)cmbAjoutClasse.SelectedValue, (int)cmbAjoutClasse.SelectedValue);
 
             GestionEleve.CreerEleve(unEleve);
+            if (MessageBox.Show(this, "Vous allez retourner sur le menu de gestion des élèves", "Enregistrement", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                MessageBox.Show("Votre saisie a bien été enregistré.");
+            }
+            this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
