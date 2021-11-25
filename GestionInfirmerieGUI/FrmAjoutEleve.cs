@@ -41,8 +41,8 @@ namespace GestionInfirmerieGUI
 
         private void btnValider_Click(object sender, EventArgs e)
         {
-            Eleve unEleve = new Eleve(txtAjoutNom.Text, txtAjoutPrenom.Text, dtpAjoutDateNaissance.Value, txtAjoutTelEleve.Text, txtAjoutTelParent.Text,
-                (bool)cmbAjoutTiersTemps.SelectedValue, txtAjoutCommentaireSante.Text, (Classe)cmbAjoutClasse.SelectedValue);
+            Eleve unEleve = new Eleve(0, txtAjoutNom.Text, txtAjoutPrenom.Text, dtpAjoutDateNaissance.Value, txtAjoutTelEleve.Text, txtAjoutTelParent.Text,
+                (bool)cmbAjoutTiersTemps.SelectedValue, txtAjoutCommentaireSante.Text, (int)cmbAjoutClasse.SelectedValue, (int)cmbAjoutClasse.SelectedValue);
 
             GestionEleve.CreerEleve(unEleve);
         }

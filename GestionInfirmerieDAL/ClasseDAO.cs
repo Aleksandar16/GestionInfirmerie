@@ -61,7 +61,7 @@ namespace GestionInfirmerieDAL
 
             while (monReader.Read())
             {
-                id = Int32.Parse(monReader["id_classe"].ToString());
+                id = (int)monReader["id_classe"];
 
                 libelle = monReader["libelle_classe"].ToString();
 

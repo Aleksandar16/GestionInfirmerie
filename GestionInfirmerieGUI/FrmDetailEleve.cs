@@ -18,91 +18,90 @@ namespace GestionInfirmerieGUI
         public FrmDetailEleve()
         {
             InitializeComponent();
+
             GestionEleve.SetchaineConnexion(ConfigurationManager.ConnectionStrings
             ["GestionInfirmerie"]);
 
             dataGridViewEleve.AutoGenerateColumns = false;
 
-            DataGridViewTextBoxColumn IdColumn = new DataGridViewTextBoxColumn();
+                DataGridViewTextBoxColumn NomColumn = new DataGridViewTextBoxColumn();
 
-            IdColumn.DataPropertyName = "Id";
-            IdColumn.HeaderText = "ID";
-            IdColumn.Width = 50;
+                NomColumn.DataPropertyName = "Nom";
+                NomColumn.HeaderText = "Nom";
+                NomColumn.Width = 80;
 
-            DataGridViewTextBoxColumn NomColumn = new DataGridViewTextBoxColumn();
+                DataGridViewTextBoxColumn PrenomColumn = new DataGridViewTextBoxColumn();
 
-            NomColumn.DataPropertyName = "Nom";
-            NomColumn.HeaderText = "Nom";
-            NomColumn.Width = 80;
+                PrenomColumn.DataPropertyName = "Prenom";
+                PrenomColumn.HeaderText = "Prenom";
+                PrenomColumn.Width = 80;
 
-            DataGridViewTextBoxColumn PrenomColumn = new DataGridViewTextBoxColumn();
+                DataGridViewTextBoxColumn DateColumn = new DataGridViewTextBoxColumn();
 
-            PrenomColumn.DataPropertyName = "Prenom";
-            PrenomColumn.HeaderText = "Prenom";
-            PrenomColumn.Width = 80;
+                DateColumn.DataPropertyName = "Date_naissance";
+                DateColumn.HeaderText = "Date";
+                DateColumn.Width = 80;
 
-            DataGridViewTextBoxColumn DateColumn = new DataGridViewTextBoxColumn();
+                DataGridViewTextBoxColumn NumTelEleveColumn = new DataGridViewTextBoxColumn();
 
-            DateColumn.DataPropertyName = "Date_naissance";
-            DateColumn.HeaderText = "Date";
-            DateColumn.Width = 80;
+                NumTelEleveColumn.DataPropertyName = "Num_portable";
+                NumTelEleveColumn.HeaderText = "Portable Eleve";
+                NumTelEleveColumn.Width = 150;
 
-            DataGridViewTextBoxColumn NumTelEleveColumn = new DataGridViewTextBoxColumn();
+                DataGridViewTextBoxColumn NumTelParentColumn = new DataGridViewTextBoxColumn();
 
-            NumTelEleveColumn.DataPropertyName = "Num_portable";
-            NumTelEleveColumn.HeaderText = "Portable Eleve";
-            NumTelEleveColumn.Width = 150;
+                NumTelParentColumn.DataPropertyName = "Num_portable_parent";
+                NumTelParentColumn.HeaderText = "Portable Parent";
+                NumTelParentColumn.Width = 150;
 
-            DataGridViewTextBoxColumn NumTelParentColumn = new DataGridViewTextBoxColumn();
+                DataGridViewTextBoxColumn TiersTempsColumn = new DataGridViewTextBoxColumn();
 
-            NumTelParentColumn.DataPropertyName = "Num_portable_parent";
-            NumTelParentColumn.HeaderText = "Portable Parent";
-            NumTelParentColumn.Width = 150;
+                TiersTempsColumn.DataPropertyName = "Tiers_temps";
+                TiersTempsColumn.HeaderText = "Tiers temps";
+                TiersTempsColumn.Width = 120;
 
-            DataGridViewTextBoxColumn TiersTempsColumn = new DataGridViewTextBoxColumn();
+                DataGridViewTextBoxColumn CommentaireSanteColumn = new DataGridViewTextBoxColumn();
 
-            TiersTempsColumn.DataPropertyName = "Tiers_temps";
-            TiersTempsColumn.HeaderText = "Tiers temps";
-            TiersTempsColumn.Width = 120;
+                CommentaireSanteColumn.DataPropertyName = "Commentaire_sante";
+                CommentaireSanteColumn.HeaderText = "Commentaire santé";
+                CommentaireSanteColumn.Width = 140;
 
-            DataGridViewTextBoxColumn CommentaireSanteColumn = new DataGridViewTextBoxColumn();
+                DataGridViewTextBoxColumn ClasseEleveColumn = new DataGridViewTextBoxColumn();
 
-            CommentaireSanteColumn.DataPropertyName = "Commentaire_sante";
-            CommentaireSanteColumn.HeaderText = "Commentaire santé";
-            CommentaireSanteColumn.Width = 120;
+                ClasseEleveColumn.DataPropertyName = "Libelle";
+                ClasseEleveColumn.HeaderText = "Classe Eleve";
+                ClasseEleveColumn.Width = 150;
 
-            DataGridViewTextBoxColumn ClasseEleveColumn = new DataGridViewTextBoxColumn();
+                dataGridViewEleve.Columns.Add(NomColumn);
+                dataGridViewEleve.Columns.Add(PrenomColumn);
+                dataGridViewEleve.Columns.Add(DateColumn);
+                dataGridViewEleve.Columns.Add(NumTelEleveColumn);
+                dataGridViewEleve.Columns.Add(NumTelParentColumn);
+                dataGridViewEleve.Columns.Add(TiersTempsColumn);
+                dataGridViewEleve.Columns.Add(CommentaireSanteColumn);
+                dataGridViewEleve.Columns.Add(ClasseEleveColumn);
 
-            ClasseEleveColumn.DataPropertyName = "Classe";
-            ClasseEleveColumn.HeaderText = "Classe Eleve";
-            ClasseEleveColumn.Width = 150;
+                dataGridViewEleve.ColumnHeadersVisible = true;
+                DataGridViewCellStyle columnHeaderStyle = new DataGridViewCellStyle();
 
-            dataGridViewEleve.Columns.Add(IdColumn);
-            dataGridViewEleve.Columns.Add(NomColumn);
-            dataGridViewEleve.Columns.Add(PrenomColumn);
-            dataGridViewEleve.Columns.Add(DateColumn);
-            dataGridViewEleve.Columns.Add(NumTelEleveColumn);
-            dataGridViewEleve.Columns.Add(NumTelParentColumn);
-            dataGridViewEleve.Columns.Add(TiersTempsColumn);
-            dataGridViewEleve.Columns.Add(CommentaireSanteColumn);
-            dataGridViewEleve.Columns.Add(ClasseEleveColumn);
+                columnHeaderStyle.BackColor = Color.Beige;
+                columnHeaderStyle.Font = new Font("Verdana", 10, FontStyle.Bold);
 
-            dataGridViewEleve.ColumnHeadersVisible = true;
-            DataGridViewCellStyle columnHeaderStyle = new DataGridViewCellStyle();
+                dataGridViewEleve.ColumnHeadersDefaultCellStyle = columnHeaderStyle;
 
-            columnHeaderStyle.BackColor = Color.Beige;
-            columnHeaderStyle.Font = new Font("Verdana", 10, FontStyle.Bold);
+                List<Eleve> liste = new List<Eleve>();
+                liste = GestionEleve.GetEleve();
 
-            dataGridViewEleve.ColumnHeadersDefaultCellStyle = columnHeaderStyle;
-
-            List<Eleve> liste = new List<Eleve>();
-            liste = GestionEleve.GetEleve();
-
-            dataGridViewEleve.DataSource = liste;
+                dataGridViewEleve.DataSource = liste;
 
         }
 
         private void btnRetour_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnRetour_Click_1(object sender, EventArgs e)
         {
             this.Close();
         }

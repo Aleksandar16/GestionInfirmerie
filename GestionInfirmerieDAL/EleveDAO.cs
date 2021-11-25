@@ -31,7 +31,7 @@ namespace GestionInfirmerieDAL
             string num_tel_parent_eleve;
             bool tiers_temps_eleve;
             string commentaire_sante_eleve;
-            Classe classe;
+            string libelle_classe;
 
             Eleve unEleve;
             // Connexion à la BD
@@ -40,12 +40,12 @@ namespace GestionInfirmerieDAL
             List<Eleve> lesEleves = new List<Eleve>();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = " SELECT * FROM ELEVE, CLASSE WHERE ELEVE.id_classe = CLASSE.id_classe";
+            cmd.CommandText = "SELECT * FROM ELEVE, CLASSE WHERE ELEVE.id_classe = CLASSE.id_classe";
             SqlDataReader monReader = cmd.ExecuteReader();
             // Remplissage de la liste
             while (monReader.Read())
             {
-                id = Int32.Parse(monReader["id_eleve"].ToString());
+                id = (int)monReader["id_eleve"];
                 nom = monReader["nom_eleve"].ToString();
                 prenom = monReader["prenom_eleve"].ToString();
                 date_naissance_eleve = (DateTime)monReader["date_naissance_eleve"];
@@ -53,10 +53,10 @@ namespace GestionInfirmerieDAL
                 num_tel_parent_eleve = monReader["num_tel_parent_eleve"].ToString();
                 tiers_temps_eleve = (bool)monReader["tiers_temps_eleve"];
                 commentaire_sante_eleve = monReader["commentaire_sante_eleve"].ToString();
-                classe = new Classe((int)monReader["id_classe"],monReader["libelle_classe"].ToString());
+                libelle_classe = monReader["libelle_classe"].ToString();
 
                 unEleve = new Eleve(id, nom, prenom, date_naissance_eleve, num_portable_eleve, num_tel_parent_eleve, tiers_temps_eleve, 
-                    commentaire_sante_eleve, classe);
+                    commentaire_sante_eleve, libelle_classe);
                 lesEleves.Add(unEleve);
             }
             // Fermeture de la connexion
@@ -73,8 +73,8 @@ namespace GestionInfirmerieDAL
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "INSERT INTO ELEVE values('" + unEleve.Nom + unEleve.Prenom + unEleve.Date_naissance + unEleve.Num_portable +
-                unEleve.Num_portable_parent + unEleve.Tiers_temps + unEleve.Commentaire_sante + unEleve.Classe + "')";
+            cmd.CommandText = "INSERT INTO ELEVE values('" + unEleve.Nom + "', '" + unEleve.Prenom + "', '" + unEleve.Date_naissance + "', '" + unEleve.Num_portable + "', '" +
+                unEleve.Num_portable_parent + "', '" + unEleve.Tiers_temps + "', '" + unEleve.Commentaire_sante + "', '" + unEleve.Id_Classe_E + "', '" + unEleve.Id_Classe + "')";
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
             maConnexion.Close();
@@ -91,21 +91,21 @@ namespace GestionInfirmerieDAL
             cmd.Connection = maConnexion;
             cmd.CommandText = "UPDATE ELEVE SET nom_eleve = '" + unEleve.Nom + "' prenom_eleve = '" + unEleve.Prenom + "' date_naissance_eleve = '" + unEleve.Date_naissance + "'" +
                 " num_portable_eleve = '" + unEleve.Num_portable + "' num_tel_parent_eleve = '" + unEleve.Num_portable_parent + "' tiers_temps_eleve = '" + unEleve.Tiers_temps + "'" +
-                " commenataire_sante_eleve = '" + unEleve.Commentaire_sante + "'" + " id_classe = '" + unEleve.Classe + "' WHERE id_eleve = " + unEleve.Id;
+                " commenataire_sante_eleve = '" + unEleve.Commentaire_sante + "'" + " id_classe = '" + unEleve.Id_Classe + "' WHERE id_eleve = " + unEleve.Id;
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
             maConnexion.Close();
             return nbEnr;
         }
         // Cette méthode supprime de la BD un eleve dont l'id est passé en paramètre
-        public static int DeleteEleve(int id)
+        public static int DeleteEleve(Eleve unEleve)
         {
             int nbEnr;
             // Connexion à la BD
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "DELETE FROM ELEVE WHERE id_eleve = " + id;
+            cmd.CommandText = "DELETE FROM ELEVE WHERE id_eleve = " + unEleve.Id;
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
             maConnexion.Close();
