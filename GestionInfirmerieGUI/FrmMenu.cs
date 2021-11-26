@@ -32,5 +32,13 @@ namespace GestionInfirmerieGUI
                 this.Close();
             }
         }
+
+        private void btnGestionMedicament_Click(object sender, EventArgs e)
+        {
+            FrmGestionMedic FrmGestionMedic;
+            FrmGestionMedic = new FrmGestionMedic();
+            FrmGestionMedic.ShowDialog();
+            FrmGestionMedic.Close();
+        }
     }
 }

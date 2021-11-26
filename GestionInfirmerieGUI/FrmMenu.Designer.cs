@@ -42,7 +42,7 @@ namespace GestionInfirmerieGUI
             this.lblMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.8F);
             this.lblMenu.Location = new System.Drawing.Point(238, 74);
             this.lblMenu.Name = "lblMenu";
-            this.lblMenu.Size = new System.Drawing.Size(317, 32);
+            this.lblMenu.Size = new System.Drawing.Size(316, 32);
             this.lblMenu.TabIndex = 0;
             this.lblMenu.Text = "Menu Gestion Infirmerie";
             // 
@@ -76,6 +76,7 @@ namespace GestionInfirmerieGUI
             this.btnGestionMedicament.TabIndex = 3;
             this.btnGestionMedicament.Text = "Gestion des médicaments";
             this.btnGestionMedicament.UseVisualStyleBackColor = true;
+            this.btnGestionMedicament.Click += new System.EventHandler(this.btnGestionMedicament_Click);
             // 
             // btnQuitter
             // 
