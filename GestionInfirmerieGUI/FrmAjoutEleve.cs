@@ -55,9 +55,9 @@ namespace GestionInfirmerieGUI
                 GestionEleve.CreerEleve(unEleve);
 
                 MessageBox.Show("Votre saisie a bien été enregistré.");
-            }
 
-            this.Close();
+                this.Close();
+            }
 
         }
 
