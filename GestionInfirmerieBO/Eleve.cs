@@ -22,7 +22,9 @@ namespace GestionInfirmerieBO
 
         //Sauvegarde de l'id de l'élève pour appliquer les modifications et la suppression
         private static Eleve eleveId;
-
+        
+        public Eleve()
+        { }
         public Eleve(int id_eleve)
         {
             this.Id_eleve = id_eleve;

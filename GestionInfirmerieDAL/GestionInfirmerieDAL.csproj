@@ -45,6 +45,7 @@
     <Compile Include="ConnexionBD.cs" />
     <Compile Include="EleveDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UtilisateurDAO.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GestionInfirmerieBO\GestionInfirmerieBO.csproj">

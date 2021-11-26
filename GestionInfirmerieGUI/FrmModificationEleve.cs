@@ -15,7 +15,9 @@ namespace GestionInfirmerieGUI
 {
     public partial class FrmModificationEleve : Form
     {
-        public FrmModificationEleve()
+        public const bool OuiTiersTemps = true;
+        public const bool NonTiersTemps = false;
+        public FrmModificationEleve(Eleve unEleve)
         {
             InitializeComponent();
 
@@ -31,21 +33,35 @@ namespace GestionInfirmerieGUI
             cmbClasse.DataSource = liste;
 
             List<bool> tiersTemps = new List<bool>();
+
+            tiersTemps.Add(OuiTiersTemps);
+            tiersTemps.Add(NonTiersTemps);
             cmbTiersTemps.DataSource = tiersTemps;
 
-            Eleve eleve = Eleve.EleveId;
-            txtNom.Text = eleve.Nom.Trim();
-            txtPrenom.Text = eleve.Prenom.Trim();
-            dtpDateNaissance.Value = eleve.Date_naissance;
-            txtNumTelEleve.Text = eleve.Num_portable.Trim();
-            txtNumTelParent.Text = eleve.Num_portable_parent.Trim();
-            if (eleve.Tiers_temps == true)
+            txtNom.Text = unEleve.Nom;
+            txtPrenom.Text = unEleve.Prenom;
+            dtpDateNaissance.Value = unEleve.Date_naissance;
+            txtNumTelEleve.Text = unEleve.Num_portable;
+            txtNumTelParent.Text = unEleve.Num_portable_parent;
+            txtCommentaireSante.Text = unEleve.Commentaire_sante;
+        }
+
+        private void btnModifier_Click(object sender, EventArgs e)
+        {
+            // vérification que les champs ne sont pas vides
+            if (txtNom.Text == string.Empty || txtPrenom.Text == string.Empty || dtpDateNaissance.Text == string.Empty || txtNumTelEleve.Text == string.Empty ||
+                txtNumTelParent.Text == string.Empty || cmbTiersTemps.Text == string.Empty || txtCommentaireSante.Text == string.Empty || cmbClasse.Text == string.Empty)
             {
-                cmbTiersTemps.SelectedValue = true;
+                MessageBox.Show("Vous devez remplir tous les champs !");
             }
             else
             {
-                cmbTiersTemps.SelectedValue = false;
+                Eleve unEleve = new Eleve(id, txtNom.Text, txtPrenom.Text, dtpDateNaissance.Value, txtNumTelEleve.Text, txtNumTelParent.Text,
+                (bool)cmbTiersTemps.SelectedValue, txtCommentaireSante.Text, (int)cmbClasse.SelectedValue, (int)cmbClasse.SelectedValue);
+
+                GestionEleve.ModifierEleve(unEleve);
+
+                MessageBox.Show("Votre saisie a bien été modifié.");
             }
         }
     }

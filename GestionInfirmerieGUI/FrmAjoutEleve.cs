@@ -57,6 +57,8 @@ namespace GestionInfirmerieGUI
                 MessageBox.Show("Votre saisie a bien été enregistré.");
             }
 
+            this.Close();
+
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="GestionClasse.cs" />
     <Compile Include="GestionEleve.cs" />
+    <Compile Include="GestionUtilisateur.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

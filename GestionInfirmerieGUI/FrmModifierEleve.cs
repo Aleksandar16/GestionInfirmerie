@@ -37,9 +37,9 @@ namespace GestionInfirmerieGUI
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
-            Eleve.EleveId = new Eleve ((int)cmbModifier.SelectedValue);
+            Eleve unEleve = (Eleve)cmbModifier.SelectedItem;
 
-            FrmModificationEleve FrmModificationEleve = new FrmModificationEleve();
+            FrmModificationEleve FrmModificationEleve = new FrmModificationEleve(unEleve);
             FrmModificationEleve.Show(); // ouverture du formulaire
         }
     }

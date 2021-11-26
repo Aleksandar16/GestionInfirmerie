@@ -122,6 +122,7 @@
             this.btnModifier.TabIndex = 11;
             this.btnModifier.Text = "Modifier";
             this.btnModifier.UseVisualStyleBackColor = false;
+            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
             // 
             // lblNom
             // 

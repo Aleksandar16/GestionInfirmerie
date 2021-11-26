@@ -39,7 +39,7 @@ namespace GestionInfirmerieGUI
         {
             Eleve unEleve = new Eleve((int)cmbSupprimer.SelectedValue);
 
-            DialogResult dialogResult = MessageBox.Show("L'élève a bien été supprimer de la base de données.", "Enregistrement", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Voulez-vous supprimer l'élève de la base de données ?", "Enregistrement", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 GestionEleve.SupprimerEleve(unEleve);
