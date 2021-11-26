@@ -195,7 +195,7 @@ namespace GestionInfirmerieDAL
             cmd.Connection = maConnexion;
             cmd.CommandText = "UPDATE ELEVE SET nom_eleve = '" + unEleve.Nom + "', prenom_eleve = '" + unEleve.Prenom + "', date_naissance_eleve = '" + unEleve.Date_naissance + "'" +
                 ", num_portable_eleve = '" + unEleve.Num_portable + "', num_tel_parent_eleve = '" + unEleve.Num_portable_parent + "', tiers_temps_eleve = '" + unEleve.Tiers_temps + "'" +
-                ", commenataire_sante_eleve = '" + unEleve.Commentaire_sante + "'" + ", id_classe_e = '" + unEleve.Id_Classe + "', id_classe = '" + unEleve.Id_Classe + "' WHERE id_eleve = " + unEleve.Id;
+                ", commentaire_sante_eleve = '" + unEleve.Commentaire_sante + "'" + ", id_classe_e = '" + unEleve.Id_Classe + "', id_classe = '" + unEleve.Id_Classe + "' WHERE id_eleve = " + unEleve.Id;
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
             maConnexion.Close();

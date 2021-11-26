@@ -166,10 +166,10 @@ namespace GestionInfirmerieGUI
             // lblAjoutCommentaireSante
             // 
             this.lblAjoutCommentaireSante.AutoSize = true;
-            this.lblAjoutCommentaireSante.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F);
+            this.lblAjoutCommentaireSante.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAjoutCommentaireSante.Location = new System.Drawing.Point(510, 160);
             this.lblAjoutCommentaireSante.Name = "lblAjoutCommentaireSante";
-            this.lblAjoutCommentaireSante.Size = new System.Drawing.Size(203, 26);
+            this.lblAjoutCommentaireSante.Size = new System.Drawing.Size(182, 25);
             this.lblAjoutCommentaireSante.TabIndex = 16;
             this.lblAjoutCommentaireSante.Text = "Commentaire santé";
             // 

@@ -17,9 +17,12 @@ namespace GestionInfirmerieGUI
     {
         public const bool OuiTiersTemps = true;
         public const bool NonTiersTemps = false;
+        public int id;
         public FrmModificationEleve(Eleve unEleve)
         {
             InitializeComponent();
+
+            id = unEleve.Id;
 
             GestionEleve.SetchaineConnexion(ConfigurationManager.ConnectionStrings["GestionInfirmerie"]);
             List<Classe> liste = new List<Classe>();
@@ -62,7 +65,14 @@ namespace GestionInfirmerieGUI
                 GestionEleve.ModifierEleve(unEleve);
 
                 MessageBox.Show("Votre saisie a bien été modifié.");
+
+                this.Close();
             }
+        }
+
+        private void btnRetour_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

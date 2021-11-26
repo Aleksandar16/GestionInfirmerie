@@ -110,6 +110,7 @@
             this.btnRetour.TabIndex = 10;
             this.btnRetour.Text = "Retour";
             this.btnRetour.UseVisualStyleBackColor = false;
+            this.btnRetour.Click += new System.EventHandler(this.btnRetour_Click);
             // 
             // btnModifier
             // 
