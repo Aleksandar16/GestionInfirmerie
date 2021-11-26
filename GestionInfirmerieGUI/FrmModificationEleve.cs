@@ -46,7 +46,9 @@ namespace GestionInfirmerieGUI
             dtpDateNaissance.Value = unEleve.Date_naissance;
             txtNumTelEleve.Text = unEleve.Num_portable;
             txtNumTelParent.Text = unEleve.Num_portable_parent;
+            cmbTiersTemps.SelectedItem = unEleve.Tiers_temps;
             txtCommentaireSante.Text = unEleve.Commentaire_sante;
+            cmbClasse.Text = unEleve.Libelle;
         }
 
         private void btnModifier_Click(object sender, EventArgs e)
