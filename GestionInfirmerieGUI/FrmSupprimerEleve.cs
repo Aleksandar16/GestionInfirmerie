@@ -43,13 +43,8 @@ namespace GestionInfirmerieGUI
             if (dialogResult == DialogResult.Yes)
             {
                 GestionEleve.SupprimerEleve(unEleve);
+                this.Close();
             }
-            else if (dialogResult == DialogResult.No)
-            {
-                MessageBox.Show("Vous allez retourner au menu de gestion des élèves");
-            }
-
-            this.Close();
         }
     }
 }

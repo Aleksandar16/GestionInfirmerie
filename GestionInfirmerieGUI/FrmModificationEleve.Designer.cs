@@ -60,21 +60,21 @@
             this.txtNumTelParent.Location = new System.Drawing.Point(88, 346);
             this.txtNumTelParent.Name = "txtNumTelParent";
             this.txtNumTelParent.Size = new System.Drawing.Size(167, 22);
-            this.txtNumTelParent.TabIndex = 3;
+            this.txtNumTelParent.TabIndex = 4;
             // 
             // txtNumTelEleve
             // 
             this.txtNumTelEleve.Location = new System.Drawing.Point(88, 268);
             this.txtNumTelEleve.Name = "txtNumTelEleve";
             this.txtNumTelEleve.Size = new System.Drawing.Size(167, 22);
-            this.txtNumTelEleve.TabIndex = 4;
+            this.txtNumTelEleve.TabIndex = 3;
             // 
             // txtPrenom
             // 
             this.txtPrenom.Location = new System.Drawing.Point(88, 126);
             this.txtPrenom.Name = "txtPrenom";
             this.txtPrenom.Size = new System.Drawing.Size(167, 22);
-            this.txtPrenom.TabIndex = 5;
+            this.txtPrenom.TabIndex = 1;
             // 
             // cmbTiersTemps
             // 
@@ -82,7 +82,7 @@
             this.cmbTiersTemps.Location = new System.Drawing.Point(509, 62);
             this.cmbTiersTemps.Name = "cmbTiersTemps";
             this.cmbTiersTemps.Size = new System.Drawing.Size(247, 24);
-            this.cmbTiersTemps.TabIndex = 7;
+            this.cmbTiersTemps.TabIndex = 5;
             // 
             // cmbClasse
             // 
@@ -90,14 +90,14 @@
             this.cmbClasse.Location = new System.Drawing.Point(509, 346);
             this.cmbClasse.Name = "cmbClasse";
             this.cmbClasse.Size = new System.Drawing.Size(247, 24);
-            this.cmbClasse.TabIndex = 8;
+            this.cmbClasse.TabIndex = 7;
             // 
             // dtpDateNaissance
             // 
             this.dtpDateNaissance.Location = new System.Drawing.Point(65, 199);
             this.dtpDateNaissance.Name = "dtpDateNaissance";
             this.dtpDateNaissance.Size = new System.Drawing.Size(241, 22);
-            this.dtpDateNaissance.TabIndex = 9;
+            this.dtpDateNaissance.TabIndex = 2;
             // 
             // btnRetour
             // 
@@ -107,7 +107,7 @@
             this.btnRetour.Location = new System.Drawing.Point(12, 392);
             this.btnRetour.Name = "btnRetour";
             this.btnRetour.Size = new System.Drawing.Size(173, 46);
-            this.btnRetour.TabIndex = 10;
+            this.btnRetour.TabIndex = 9;
             this.btnRetour.Text = "Retour";
             this.btnRetour.UseVisualStyleBackColor = false;
             this.btnRetour.Click += new System.EventHandler(this.btnRetour_Click);
@@ -120,7 +120,7 @@
             this.btnModifier.Location = new System.Drawing.Point(303, 392);
             this.btnModifier.Name = "btnModifier";
             this.btnModifier.Size = new System.Drawing.Size(173, 46);
-            this.btnModifier.TabIndex = 11;
+            this.btnModifier.TabIndex = 8;
             this.btnModifier.Text = "Modifier";
             this.btnModifier.UseVisualStyleBackColor = false;
             this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
@@ -202,7 +202,7 @@
             this.txtCommentaireSante.Location = new System.Drawing.Point(532, 187);
             this.txtCommentaireSante.Name = "txtCommentaireSante";
             this.txtCommentaireSante.Size = new System.Drawing.Size(164, 22);
-            this.txtCommentaireSante.TabIndex = 20;
+            this.txtCommentaireSante.TabIndex = 6;
             // 
             // FrmModificationEleve
             // 

@@ -110,12 +110,8 @@ namespace GestionInfirmerieGUI
         {
             if (!String.IsNullOrEmpty(txtNom.Text))
             {
-                DialogResult dialogResult =
-                    MessageBox.Show("Voulez-vous chercher l'élève : " + txtNom.Text + " ?",
-                        "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dialogResult == DialogResult.Yes && GestionEleve.ChercherEleve(txtNom.Text) == true)
+                if (GestionEleve.ChercherEleve(txtNom.Text) == true)
                 {
-                    MessageBox.Show("Voici les résultats.");
                     List<Eleve> listes = new List<Eleve>();
                     listes = GestionEleve.GetUnEleve(txtNom.Text);
                     dataGridViewEleve.DataSource = listes;
@@ -123,8 +119,7 @@ namespace GestionInfirmerieGUI
 
                 if (GestionEleve.ChercherEleve(txtNom.Text) == false)
                 {
-                    MessageBox.Show("L'élève n'existe pas !", "Attention", MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
+                    MessageBox.Show("L'élève n'existe pas !", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }

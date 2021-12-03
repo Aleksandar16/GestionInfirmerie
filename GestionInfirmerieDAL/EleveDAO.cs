@@ -172,13 +172,31 @@ namespace GestionInfirmerieDAL
         // Cette méthode insert un nouvel élève passé en paramètre dans la BD
         public static int AjoutEleve(Eleve unEleve)
         {
+            /*cmd.Parameters.Add(new SqlParameter("@Param1", System.Data.SqlDbType.NVarChar, 11));
+            cmd.Parameters["@Param1"].Value = EleveId;
+            cmd.CommandText = "SELECT * FROM ELEVE, CLASSE WHERE ELEVE.id_classe = CLASSE.id_classe AND id_eleve = @Param1";*/
             int nbEnr;
             // Connexion à la BD
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "INSERT INTO ELEVE values('" + unEleve.Nom + "', '" + unEleve.Prenom + "', '" + unEleve.Date_naissance + "', '" + unEleve.Num_portable + "', '" +
-                unEleve.Num_portable_parent + "', '" + unEleve.Tiers_temps + "', '" + unEleve.Commentaire_sante + "', '" + unEleve.Id_Classe_E + "', '" + unEleve.Id_Classe + "')";
+            cmd.Parameters.Add(new SqlParameter("@Nom", System.Data.SqlDbType.NVarChar));
+            cmd.Parameters.Add(new SqlParameter("@Prenom", System.Data.SqlDbType.NVarChar));
+            cmd.Parameters.Add(new SqlParameter("@DateNaissance", System.Data.SqlDbType.DateTime));
+            cmd.Parameters.Add(new SqlParameter("@NumTelEleve", System.Data.SqlDbType.NVarChar));
+            cmd.Parameters.Add(new SqlParameter("@NumTelParent", System.Data.SqlDbType.NVarChar));
+            cmd.Parameters.Add(new SqlParameter("@TiersTemps", System.Data.SqlDbType.NVarChar));
+            cmd.Parameters.Add(new SqlParameter("@CommentaireSante", System.Data.SqlDbType.NVarChar));
+            cmd.Parameters.Add(new SqlParameter("@IdClasse", System.Data.SqlDbType.NVarChar));
+            cmd.Parameters["@Nom"].Value = unEleve.Nom;
+            cmd.Parameters["@Prenom"].Value = unEleve.Prenom;
+            cmd.Parameters["@DateNaissance"].Value = unEleve.Date_naissance;
+            cmd.Parameters["@NumTelEleve"].Value = unEleve.Num_portable;
+            cmd.Parameters["@NumTelParent"].Value = unEleve.Num_portable_parent;
+            cmd.Parameters["@TiersTemps"].Value = unEleve.Tiers_temps;
+            cmd.Parameters["@CommentaireSante"].Value = unEleve.Commentaire_sante;
+            cmd.Parameters["@IdClasse"].Value = unEleve.Id_Classe;
+            cmd.CommandText = "INSERT INTO ELEVE values(@Nom, @Prenom, @DateNaissance, @NumTelEleve, @NumTelParent, @TiersTemps, @CommentaireSante, @IdClasse)";
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
             maConnexion.Close();
@@ -189,13 +207,28 @@ namespace GestionInfirmerieDAL
         {
             int nbEnr;
             // Connexion à la BD
-            SqlConnection maConnexion =
-            ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "UPDATE ELEVE SET nom_eleve = '" + unEleve.Nom + "', prenom_eleve = '" + unEleve.Prenom + "', date_naissance_eleve = '" + unEleve.Date_naissance + "'" +
-                ", num_portable_eleve = '" + unEleve.Num_portable + "', num_tel_parent_eleve = '" + unEleve.Num_portable_parent + "', tiers_temps_eleve = '" + unEleve.Tiers_temps + "'" +
-                ", commentaire_sante_eleve = '" + unEleve.Commentaire_sante + "'" + ", id_classe_e = '" + unEleve.Id_Classe + "', id_classe = '" + unEleve.Id_Classe + "' WHERE id_eleve = " + unEleve.Id;
+            cmd.Parameters.Add(new SqlParameter("@Id", System.Data.SqlDbType.NVarChar));
+            cmd.Parameters.Add(new SqlParameter("@Nom", System.Data.SqlDbType.NVarChar));
+            cmd.Parameters.Add(new SqlParameter("@Prenom", System.Data.SqlDbType.NVarChar));
+            cmd.Parameters.Add(new SqlParameter("@DateNaissance", System.Data.SqlDbType.DateTime));
+            cmd.Parameters.Add(new SqlParameter("@NumTelEleve", System.Data.SqlDbType.NVarChar));
+            cmd.Parameters.Add(new SqlParameter("@NumTelParent", System.Data.SqlDbType.NVarChar));
+            cmd.Parameters.Add(new SqlParameter("@TiersTemps", System.Data.SqlDbType.NVarChar));
+            cmd.Parameters.Add(new SqlParameter("@CommentaireSante", System.Data.SqlDbType.NVarChar));
+            cmd.Parameters.Add(new SqlParameter("@IdClasse", System.Data.SqlDbType.Int));
+            cmd.Parameters["@Id"].Value = unEleve.Id;
+            cmd.Parameters["@Nom"].Value = unEleve.Nom;
+            cmd.Parameters["@Prenom"].Value = unEleve.Prenom;
+            cmd.Parameters["@DateNaissance"].Value = unEleve.Date_naissance;
+            cmd.Parameters["@NumTelEleve"].Value = unEleve.Num_portable;
+            cmd.Parameters["@NumTelParent"].Value = unEleve.Num_portable_parent;
+            cmd.Parameters["@TiersTemps"].Value = unEleve.Tiers_temps;
+            cmd.Parameters["@CommentaireSante"].Value = unEleve.Commentaire_sante;
+            cmd.Parameters["@IdClasse"].Value = unEleve.Id_Classe;
+            cmd.CommandText = "UPDATE ELEVE SET nom_eleve = Nom, prenom_eleve = @Prenom, date_naissance_eleve = @DateNaissance, num_portable_eleve = @NumTelEleve, num_tel_parent_eleve = @NumTelParent, tiers_temps_eleve = @TiersTemps, commentaire_sante_eleve = @CommentaireSante, id_classe = @IdClasse WHERE id_eleve =  + @Id";
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
             maConnexion.Close();
@@ -209,7 +242,9 @@ namespace GestionInfirmerieDAL
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "DELETE FROM ELEVE WHERE id_eleve = " + unEleve.Id;
+            cmd.Parameters.Add(new SqlParameter("@Id", System.Data.SqlDbType.Int));
+            cmd.Parameters["@Id"].Value = unEleve.Id;
+            cmd.CommandText = "DELETE FROM ELEVE WHERE id_eleve = @Id";
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
             maConnexion.Close();

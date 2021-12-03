@@ -12,6 +12,14 @@ namespace GestionInfirmerieBO
         private string libelle;
 
         public Classe() { }
+        public Classe(int id) 
+        {
+            this.id = id;
+        }
+        public Classe(string libelle)
+        {
+            this.libelle = libelle;
+        }
         public Classe(int id, string libelle)
         {
             this.id = id;

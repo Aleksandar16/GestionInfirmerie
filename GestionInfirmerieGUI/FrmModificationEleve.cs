@@ -62,11 +62,11 @@ namespace GestionInfirmerieGUI
             else
             {
                 Eleve unEleve = new Eleve(id, txtNom.Text, txtPrenom.Text, dtpDateNaissance.Value, txtNumTelEleve.Text, txtNumTelParent.Text,
-                (bool)cmbTiersTemps.SelectedValue, txtCommentaireSante.Text, (int)cmbClasse.SelectedValue, (int)cmbClasse.SelectedValue);
+                (bool)cmbTiersTemps.SelectedValue, txtCommentaireSante.Text, (int)cmbClasse.SelectedValue);
 
                 GestionEleve.ModifierEleve(unEleve);
 
-                MessageBox.Show("Votre saisie a bien été modifié.");
+                MessageBox.Show("Votre saisie a bien été modifiée.");
 
                 this.Close();
             }

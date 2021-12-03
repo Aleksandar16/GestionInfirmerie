@@ -43,6 +43,7 @@
             this.btnDetailsMedic.TabIndex = 0;
             this.btnDetailsMedic.Text = "Voir les médicaments";
             this.btnDetailsMedic.UseVisualStyleBackColor = true;
+            this.btnDetailsMedic.Click += new System.EventHandler(this.btnDetailsMedic_Click);
             // 
             // btnAjoutMedic
             // 
@@ -53,6 +54,7 @@
             this.btnAjoutMedic.TabIndex = 1;
             this.btnAjoutMedic.Text = "Ajouter un médicament";
             this.btnAjoutMedic.UseVisualStyleBackColor = true;
+            this.btnAjoutMedic.Click += new System.EventHandler(this.btnAjoutMedic_Click);
             // 
             // btnModifierMedic
             // 
@@ -63,6 +65,7 @@
             this.btnModifierMedic.TabIndex = 2;
             this.btnModifierMedic.Text = "Modifier un médicament";
             this.btnModifierMedic.UseVisualStyleBackColor = true;
+            this.btnModifierMedic.Click += new System.EventHandler(this.btnModifierMedic_Click);
             // 
             // btnSupprimerMedic
             // 
@@ -73,6 +76,7 @@
             this.btnSupprimerMedic.TabIndex = 3;
             this.btnSupprimerMedic.Text = "Supprimer un médicament";
             this.btnSupprimerMedic.UseVisualStyleBackColor = true;
+            this.btnSupprimerMedic.Click += new System.EventHandler(this.btnSupprimerMedic_Click);
             // 
             // FrmGestionMedic
             // 

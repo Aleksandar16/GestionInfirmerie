@@ -68,14 +68,14 @@ namespace GestionInfirmerieGUI
             this.txtAjoutTelParent.Location = new System.Drawing.Point(96, 348);
             this.txtAjoutTelParent.Name = "txtAjoutTelParent";
             this.txtAjoutTelParent.Size = new System.Drawing.Size(166, 22);
-            this.txtAjoutTelParent.TabIndex = 3;
+            this.txtAjoutTelParent.TabIndex = 4;
             // 
             // txtAjoutTelEleve
             // 
             this.txtAjoutTelEleve.Location = new System.Drawing.Point(96, 273);
             this.txtAjoutTelEleve.Name = "txtAjoutTelEleve";
             this.txtAjoutTelEleve.Size = new System.Drawing.Size(166, 22);
-            this.txtAjoutTelEleve.TabIndex = 7;
+            this.txtAjoutTelEleve.TabIndex = 3;
             // 
             // btnValider
             // 
@@ -190,7 +190,7 @@ namespace GestionInfirmerieGUI
             this.cmbAjoutTiersTemps.Location = new System.Drawing.Point(506, 112);
             this.cmbAjoutTiersTemps.Name = "cmbAjoutTiersTemps";
             this.cmbAjoutTiersTemps.Size = new System.Drawing.Size(165, 24);
-            this.cmbAjoutTiersTemps.TabIndex = 18;
+            this.cmbAjoutTiersTemps.TabIndex = 5;
             // 
             // cmbAjoutClasse
             // 
@@ -198,21 +198,21 @@ namespace GestionInfirmerieGUI
             this.cmbAjoutClasse.Location = new System.Drawing.Point(589, 321);
             this.cmbAjoutClasse.Name = "cmbAjoutClasse";
             this.cmbAjoutClasse.Size = new System.Drawing.Size(162, 24);
-            this.cmbAjoutClasse.TabIndex = 20;
+            this.cmbAjoutClasse.TabIndex = 7;
             // 
             // dtpAjoutDateNaissance
             // 
             this.dtpAjoutDateNaissance.Location = new System.Drawing.Point(94, 204);
             this.dtpAjoutDateNaissance.Name = "dtpAjoutDateNaissance";
             this.dtpAjoutDateNaissance.Size = new System.Drawing.Size(217, 22);
-            this.dtpAjoutDateNaissance.TabIndex = 21;
+            this.dtpAjoutDateNaissance.TabIndex = 2;
             // 
             // txtAjoutCommentaireSante
             // 
             this.txtAjoutCommentaireSante.Location = new System.Drawing.Point(506, 206);
             this.txtAjoutCommentaireSante.Name = "txtAjoutCommentaireSante";
             this.txtAjoutCommentaireSante.Size = new System.Drawing.Size(246, 78);
-            this.txtAjoutCommentaireSante.TabIndex = 19;
+            this.txtAjoutCommentaireSante.TabIndex = 6;
             this.txtAjoutCommentaireSante.Text = "";
             // 
             // FrmAjoutEleve
