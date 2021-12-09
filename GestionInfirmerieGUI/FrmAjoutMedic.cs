@@ -37,7 +37,7 @@ namespace GestionInfirmerieGUI
 
                 GestionMedicament.CreerMedicament(unMedicament);
 
-                MessageBox.Show("Votre saisie a bien été enregistré.");
+                MessageBox.Show("Votre saisie a bien été enregistrée.");
 
                 this.Close();
             }

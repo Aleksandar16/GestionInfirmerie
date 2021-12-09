@@ -12,7 +12,7 @@ namespace GestionInfirmerieBO
         private string libelle;
 
         public Classe() { }
-        public Classe(int id) 
+        public Classe(int id)
         {
             this.id = id;
         }
@@ -36,6 +36,10 @@ namespace GestionInfirmerieBO
         {
             get => this.libelle;
             set => this.libelle = value;
+        }
+        public override string ToString()
+        {
+            return this.Libelle;
         }
     }
 }

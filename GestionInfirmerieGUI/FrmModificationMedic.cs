@@ -22,6 +22,8 @@ namespace GestionInfirmerieGUI
 
             id = unMedicament.Id;
 
+            txtNomMedic.Text = unMedicament.Nom;
+
             GestionEleve.SetchaineConnexion(ConfigurationManager.ConnectionStrings["GestionInfirmerie"]);
         }
 
@@ -43,7 +45,7 @@ namespace GestionInfirmerieGUI
 
                 GestionMedicament.ModifierMedicament(unMedicament);
 
-                MessageBox.Show("Votre saisie a bien été modifié.");
+                MessageBox.Show("Votre saisie a bien été modifiée.");
 
                 this.Close();
             }

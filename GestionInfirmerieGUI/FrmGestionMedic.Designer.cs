@@ -32,6 +32,7 @@
             this.btnAjoutMedic = new System.Windows.Forms.Button();
             this.btnModifierMedic = new System.Windows.Forms.Button();
             this.btnSupprimerMedic = new System.Windows.Forms.Button();
+            this.btnRetour = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnDetailsMedic
@@ -59,7 +60,7 @@
             // btnModifierMedic
             // 
             this.btnModifierMedic.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModifierMedic.Location = new System.Drawing.Point(48, 303);
+            this.btnModifierMedic.Location = new System.Drawing.Point(48, 278);
             this.btnModifierMedic.Name = "btnModifierMedic";
             this.btnModifierMedic.Size = new System.Drawing.Size(286, 68);
             this.btnModifierMedic.TabIndex = 2;
@@ -70,7 +71,7 @@
             // btnSupprimerMedic
             // 
             this.btnSupprimerMedic.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSupprimerMedic.Location = new System.Drawing.Point(451, 303);
+            this.btnSupprimerMedic.Location = new System.Drawing.Point(451, 278);
             this.btnSupprimerMedic.Name = "btnSupprimerMedic";
             this.btnSupprimerMedic.Size = new System.Drawing.Size(286, 68);
             this.btnSupprimerMedic.TabIndex = 3;
@@ -78,11 +79,22 @@
             this.btnSupprimerMedic.UseVisualStyleBackColor = true;
             this.btnSupprimerMedic.Click += new System.EventHandler(this.btnSupprimerMedic_Click);
             // 
+            // btnRetour
+            // 
+            this.btnRetour.Location = new System.Drawing.Point(12, 398);
+            this.btnRetour.Name = "btnRetour";
+            this.btnRetour.Size = new System.Drawing.Size(107, 40);
+            this.btnRetour.TabIndex = 4;
+            this.btnRetour.Text = "Retour";
+            this.btnRetour.UseVisualStyleBackColor = true;
+            this.btnRetour.Click += new System.EventHandler(this.btnRetour_Click);
+            // 
             // FrmGestionMedic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnRetour);
             this.Controls.Add(this.btnSupprimerMedic);
             this.Controls.Add(this.btnModifierMedic);
             this.Controls.Add(this.btnAjoutMedic);
@@ -99,5 +111,6 @@
         private System.Windows.Forms.Button btnAjoutMedic;
         private System.Windows.Forms.Button btnModifierMedic;
         private System.Windows.Forms.Button btnSupprimerMedic;
+        private System.Windows.Forms.Button btnRetour;
     }
 }

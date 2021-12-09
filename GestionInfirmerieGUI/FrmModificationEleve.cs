@@ -48,7 +48,7 @@ namespace GestionInfirmerieGUI
             txtNumTelParent.Text = unEleve.Num_portable_parent;
             cmbTiersTemps.SelectedItem = unEleve.Tiers_temps;
             txtCommentaireSante.Text = unEleve.Commentaire_sante;
-            cmbClasse.Text = unEleve.Libelle;
+            cmbClasse.Text = unEleve.Classe_Eleve.Libelle;
         }
 
         private void btnModifier_Click(object sender, EventArgs e)
@@ -62,7 +62,7 @@ namespace GestionInfirmerieGUI
             else
             {
                 Eleve unEleve = new Eleve(id, txtNom.Text, txtPrenom.Text, dtpDateNaissance.Value, txtNumTelEleve.Text, txtNumTelParent.Text,
-                (bool)cmbTiersTemps.SelectedValue, txtCommentaireSante.Text, (int)cmbClasse.SelectedValue);
+                (bool)cmbTiersTemps.SelectedValue, txtCommentaireSante.Text, (Classe)cmbClasse.SelectedItem);
 
                 GestionEleve.ModifierEleve(unEleve);
 

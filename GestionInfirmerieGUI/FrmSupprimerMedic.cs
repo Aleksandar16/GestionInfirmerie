@@ -46,7 +46,7 @@ namespace GestionInfirmerieGUI
             }
             else if (dialogResult == DialogResult.No)
             {
-                MessageBox.Show("Vous allez retourner au menu de gestion des élèves");
+                MessageBox.Show("Aucun médicament n'a été supprimée");
             }
 
             this.Close();

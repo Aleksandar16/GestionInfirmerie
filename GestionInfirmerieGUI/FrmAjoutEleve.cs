@@ -50,7 +50,7 @@ namespace GestionInfirmerieGUI
             else
             {
                 Eleve unEleve = new Eleve(0, txtAjoutNom.Text, txtAjoutPrenom.Text, dtpAjoutDateNaissance.Value, txtAjoutTelEleve.Text, txtAjoutTelParent.Text,
-                (bool)cmbAjoutTiersTemps.SelectedValue, txtAjoutCommentaireSante.Text, (int)cmbAjoutClasse.SelectedValue);
+                (bool)cmbAjoutTiersTemps.SelectedValue, txtAjoutCommentaireSante.Text, (Classe)cmbAjoutClasse.SelectedItem);
 
                 GestionEleve.CreerEleve(unEleve);
 

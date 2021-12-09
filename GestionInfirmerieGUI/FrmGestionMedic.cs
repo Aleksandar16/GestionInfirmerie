@@ -48,5 +48,10 @@ namespace GestionInfirmerieGUI
             FrmSupprimerMedic.ShowDialog();
             FrmSupprimerMedic.Close();
         }
+
+        private void btnRetour_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

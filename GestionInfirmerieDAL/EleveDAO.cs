@@ -31,7 +31,8 @@ namespace GestionInfirmerieDAL
             string num_tel_parent_eleve;
             bool tiers_temps_eleve;
             string commentaire_sante_eleve;
-            string libelle_classe;
+            /*string libelle_classe;*/
+            Classe classe;
 
             Eleve unEleve;
             // Connexion à la BD
@@ -53,10 +54,11 @@ namespace GestionInfirmerieDAL
                 num_tel_parent_eleve = monReader["num_tel_parent_eleve"].ToString();
                 tiers_temps_eleve = (bool)monReader["tiers_temps_eleve"];
                 commentaire_sante_eleve = monReader["commentaire_sante_eleve"].ToString();
-                libelle_classe = monReader["libelle_classe"].ToString();
+                /*libelle_classe = monReader["libelle_classe"].ToString();*/
+                classe = new Classe((int)monReader["id_classe"],monReader["libelle_classe"].ToString());
 
                 unEleve = new Eleve(id, nom, prenom, date_naissance_eleve, num_portable_eleve, num_tel_parent_eleve, tiers_temps_eleve, 
-                    commentaire_sante_eleve, libelle_classe);
+                    commentaire_sante_eleve, classe);
                 lesEleves.Add(unEleve);
             }
             // Fermeture de la connexion
@@ -74,7 +76,8 @@ namespace GestionInfirmerieDAL
             string num_tel_parent_eleve;
             bool tiers_temps_eleve;
             string commentaire_sante_eleve;
-            string libelle_classe;
+            /*string libelle_classe;*/
+            Classe libelle_classe;
 
             Eleve unEleve;
             // Connexion à la BD
@@ -98,7 +101,8 @@ namespace GestionInfirmerieDAL
                 num_tel_parent_eleve = monReader["num_tel_parent_eleve"].ToString();
                 tiers_temps_eleve = (bool)monReader["tiers_temps_eleve"];
                 commentaire_sante_eleve = monReader["commentaire_sante_eleve"].ToString();
-                libelle_classe = monReader["libelle_classe"].ToString();
+                /*libelle_classe = monReader["libelle_classe"].ToString();*/
+                libelle_classe = new Classe((int)monReader["id_classe"]);
 
                 unEleve = new Eleve(id, nom, prenom, date_naissance_eleve, num_portable_eleve, num_tel_parent_eleve, tiers_temps_eleve,
                     commentaire_sante_eleve, libelle_classe);
@@ -120,7 +124,8 @@ namespace GestionInfirmerieDAL
             string num_tel_parent_eleve;
             bool tiers_temps_eleve;
             string commentaire_sante_eleve;
-            string libelle_classe;
+            /*string libelle_classe;*/
+            Classe libelle_classe;
 
             Eleve unEleve = new Eleve();
 
@@ -145,7 +150,8 @@ namespace GestionInfirmerieDAL
                 num_tel_parent_eleve = monReader["num_tel_parent_eleve"].ToString();
                 tiers_temps_eleve = (bool)monReader["tiers_temps_eleve"];
                 commentaire_sante_eleve = monReader["commentaire_sante_eleve"].ToString();
-                libelle_classe = monReader["libelle_classe"].ToString();
+                /*libelle_classe = monReader["libelle_classe"].ToString();*/
+                libelle_classe = new Classe((int)monReader["id_classe"]);
 
                 unEleve = new Eleve(id, nom, prenom, date_naissance_eleve, num_portable_eleve, num_tel_parent_eleve, tiers_temps_eleve,
                     commentaire_sante_eleve, libelle_classe);
@@ -195,7 +201,8 @@ namespace GestionInfirmerieDAL
             cmd.Parameters["@NumTelParent"].Value = unEleve.Num_portable_parent;
             cmd.Parameters["@TiersTemps"].Value = unEleve.Tiers_temps;
             cmd.Parameters["@CommentaireSante"].Value = unEleve.Commentaire_sante;
-            cmd.Parameters["@IdClasse"].Value = unEleve.Id_Classe;
+            /*cmd.Parameters["@IdClasse"].Value = unEleve.Id_Classe;*/
+            cmd.Parameters["@IdClasse"].Value = unEleve.Classe_Eleve.Id;
             cmd.CommandText = "INSERT INTO ELEVE values(@Nom, @Prenom, @DateNaissance, @NumTelEleve, @NumTelParent, @TiersTemps, @CommentaireSante, @IdClasse)";
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
@@ -227,8 +234,9 @@ namespace GestionInfirmerieDAL
             cmd.Parameters["@NumTelParent"].Value = unEleve.Num_portable_parent;
             cmd.Parameters["@TiersTemps"].Value = unEleve.Tiers_temps;
             cmd.Parameters["@CommentaireSante"].Value = unEleve.Commentaire_sante;
-            cmd.Parameters["@IdClasse"].Value = unEleve.Id_Classe;
-            cmd.CommandText = "UPDATE ELEVE SET nom_eleve = Nom, prenom_eleve = @Prenom, date_naissance_eleve = @DateNaissance, num_portable_eleve = @NumTelEleve, num_tel_parent_eleve = @NumTelParent, tiers_temps_eleve = @TiersTemps, commentaire_sante_eleve = @CommentaireSante, id_classe = @IdClasse WHERE id_eleve =  + @Id";
+            /*cmd.Parameters["@IdClasse"].Value = unEleve.Id_Classe;*/
+            cmd.Parameters["@IdClasse"].Value = unEleve.Classe_Eleve.Id;
+            cmd.CommandText = "UPDATE ELEVE SET nom_eleve = @Nom, prenom_eleve = @Prenom, date_naissance_eleve = @DateNaissance, num_portable_eleve = @NumTelEleve, num_tel_parent_eleve = @NumTelParent, tiers_temps_eleve = @TiersTemps, commentaire_sante_eleve = @CommentaireSante, id_classe = @IdClasse WHERE id_eleve =  + @Id";
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
             maConnexion.Close();

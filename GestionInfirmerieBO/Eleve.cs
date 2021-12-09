@@ -16,8 +16,9 @@ namespace GestionInfirmerieBO
         private string Num_portable_parent_eleve;
         private bool Tiers_temps_eleve;
         private string Commentaire_sante_eleve;
-        private string Libelle_classe;
-        private int Id_Classe_Eleve;
+        /*private string Libelle_classe;
+        private int Id_Classe_Eleve;*/
+        private Classe Classe;
 
         //Sauvegarde de l'id de l'élève pour appliquer les modifications et la suppression
         private static Eleve eleveId;
@@ -30,7 +31,7 @@ namespace GestionInfirmerieBO
         }
 
         public Eleve(int id_eleve, string nom_eleve, string prenom_eleve, DateTime date_naissance_eleve, string num_portable_eleve,
-            string num_portable_parent_eleve, bool tiers_temps_eleve, string commentaire_sante_eleve, int id_classe_eleve)
+            string num_portable_parent_eleve, bool tiers_temps_eleve, string commentaire_sante_eleve, Classe classe /*int id_classe_eleve*/)
         {
             this.Id_eleve = id_eleve;
             this.Nom_eleve = nom_eleve;
@@ -40,10 +41,11 @@ namespace GestionInfirmerieBO
             this.Num_portable_parent_eleve = num_portable_parent_eleve;
             this.Tiers_temps_eleve = tiers_temps_eleve;
             this.Commentaire_sante_eleve = commentaire_sante_eleve;
-            this.Id_Classe_Eleve = id_classe_eleve;
+            /*this.Id_Classe_Eleve = id_classe_eleve;*/
+            this.Classe = classe;
         }
 
-        public Eleve(int id_eleve, string nom_eleve, string prenom_eleve, DateTime date_naissance_eleve, string num_portable_eleve,
+        /*public Eleve(int id_eleve, string nom_eleve, string prenom_eleve, DateTime date_naissance_eleve, string num_portable_eleve,
             string num_portable_parent_eleve, bool tiers_temps_eleve, string commentaire_sante_eleve, string libelle_classe)
         {
             this.Id_eleve = id_eleve;
@@ -55,7 +57,7 @@ namespace GestionInfirmerieBO
             this.Tiers_temps_eleve = tiers_temps_eleve;
             this.Commentaire_sante_eleve = commentaire_sante_eleve;
             this.Libelle_classe = libelle_classe;
-        }
+        }*/
 
         public int Id { get => this.Id_eleve; set => this.Id_eleve = value; }
         public string Nom { get => this.Nom_eleve; set => this.Nom_eleve = value; }
@@ -66,8 +68,9 @@ namespace GestionInfirmerieBO
         public bool Tiers_temps { get => this.Tiers_temps_eleve; set => this.Tiers_temps_eleve = value; }
         public string Commentaire_sante { get => this.Commentaire_sante_eleve; set => this.Commentaire_sante_eleve = value; }
         public static Eleve EleveId { get => eleveId; set => eleveId = value; }
-        public string Libelle { get => this.Libelle_classe; set => this.Libelle_classe = value; }
-        public int Id_Classe { get => this.Id_Classe_Eleve; set => this.Id_Classe_Eleve = value; }
+        /*public string Libelle { get => this.Libelle_classe; set => this.Libelle_classe = value; }
+        public int Id_Classe { get => this.Id_Classe_Eleve; set => this.Id_Classe_Eleve = value; }*/
+        public Classe Classe_Eleve { get => Classe; set => Classe = value; }
         public string Full_name {
             get
             {

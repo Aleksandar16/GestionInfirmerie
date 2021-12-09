@@ -68,7 +68,7 @@ namespace GestionInfirmerieGUI
 
                 DataGridViewTextBoxColumn ClasseEleveColumn = new DataGridViewTextBoxColumn();
 
-                ClasseEleveColumn.DataPropertyName = "Libelle";
+                ClasseEleveColumn.DataPropertyName = "Classe_Eleve";
                 ClasseEleveColumn.HeaderText = "Classe Eleve";
                 ClasseEleveColumn.Width = 150;
 
