@@ -46,6 +46,7 @@
     <Compile Include="GestionEleve.cs" />
     <Compile Include="GestionMedicament.cs" />
     <Compile Include="GestionUtilisateur.cs" />
+    <Compile Include="GestionVisite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

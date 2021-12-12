@@ -47,6 +47,7 @@
     <Compile Include="MedicamentDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UtilisateurDAO.cs" />
+    <Compile Include="VisiteDAO.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GestionInfirmerieBO\GestionInfirmerieBO.csproj">

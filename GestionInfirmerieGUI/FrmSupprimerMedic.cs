@@ -48,6 +48,10 @@ namespace GestionInfirmerieGUI
             {
                 MessageBox.Show("Aucun médicament n'a été supprimée");
             }
+            else
+            {
+                MessageBox.Show("Impossible de supprimer ce médicament !");
+            }
 
             this.Close();
         }

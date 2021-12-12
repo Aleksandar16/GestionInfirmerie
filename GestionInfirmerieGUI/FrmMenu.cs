@@ -40,5 +40,13 @@ namespace GestionInfirmerieGUI
             FrmGestionMedic.ShowDialog();
             FrmGestionMedic.Close();
         }
+
+        private void btnGestionVisite_Click(object sender, EventArgs e)
+        {
+            FrmGestionVisite FrmGestionVisite;
+            FrmGestionVisite = new FrmGestionVisite();
+            FrmGestionVisite.ShowDialog();
+            FrmGestionVisite.Close();
+        }
     }
 }

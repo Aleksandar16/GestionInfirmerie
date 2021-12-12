@@ -60,6 +60,12 @@
     <Compile Include="FrmAjoutMedic.designer.cs">
       <DependentUpon>FrmAjoutMedic.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAjoutVisite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAjoutVisite.Designer.cs">
+      <DependentUpon>FrmAjoutVisite.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmConnexion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,12 @@
     <Compile Include="FrmDetailMedic.designer.cs">
       <DependentUpon>FrmDetailMedic.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmDetailVisite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDetailVisite.Designer.cs">
+      <DependentUpon>FrmDetailVisite.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmGestionEleve.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +101,12 @@
     </Compile>
     <Compile Include="FrmGestionMedic.Designer.cs">
       <DependentUpon>FrmGestionMedic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGestionVisite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGestionVisite.Designer.cs">
+      <DependentUpon>FrmGestionVisite.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMenu.cs">
       <SubType>Form</SubType>
@@ -120,6 +138,12 @@
     <Compile Include="FrmModifierMedic.designer.cs">
       <DependentUpon>FrmModifierMedic.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmModifierVisite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmModifierVisite.Designer.cs">
+      <DependentUpon>FrmModifierVisite.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSupprimerEleve.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +164,9 @@
     <EmbeddedResource Include="FrmAjoutMedic.resx">
       <DependentUpon>FrmAjoutMedic.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAjoutVisite.resx">
+      <DependentUpon>FrmAjoutVisite.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmConnexion.resx">
       <DependentUpon>FrmConnexion.cs</DependentUpon>
     </EmbeddedResource>
@@ -149,11 +176,17 @@
     <EmbeddedResource Include="FrmDetailMedic.resx">
       <DependentUpon>FrmDetailMedic.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmDetailVisite.resx">
+      <DependentUpon>FrmDetailVisite.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmGestionEleve.resx">
       <DependentUpon>FrmGestionEleve.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGestionMedic.resx">
       <DependentUpon>FrmGestionMedic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGestionVisite.resx">
+      <DependentUpon>FrmGestionVisite.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMenu.resx">
       <DependentUpon>FrmMenu.cs</DependentUpon>

@@ -131,5 +131,6 @@ namespace GestionInfirmerieGUI
 
             dataGridViewEleve.DataSource = liste;
         }
+        
     }
 }

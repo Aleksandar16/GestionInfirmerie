@@ -66,6 +66,7 @@ namespace GestionInfirmerieGUI
             this.btnGestionVisite.TabIndex = 2;
             this.btnGestionVisite.Text = "Gestion des visites";
             this.btnGestionVisite.UseVisualStyleBackColor = true;
+            this.btnGestionVisite.Click += new System.EventHandler(this.btnGestionVisite_Click);
             // 
             // btnGestionMedicament
             // 

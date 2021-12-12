@@ -39,7 +39,7 @@
             this.lblNomMedic.AutoSize = true;
             this.lblNomMedic.Location = new System.Drawing.Point(305, 81);
             this.lblNomMedic.Name = "lblNomMedic";
-            this.lblNomMedic.Size = new System.Drawing.Size(137, 17);
+            this.lblNomMedic.Size = new System.Drawing.Size(131, 16);
             this.lblNomMedic.TabIndex = 0;
             this.lblNomMedic.Text = "Nom du médicament";
             // 
@@ -62,12 +62,15 @@
             // 
             // btnRetour
             // 
-            this.btnRetour.Location = new System.Drawing.Point(100, 342);
+            this.btnRetour.BackColor = System.Drawing.Color.Blue;
+            this.btnRetour.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRetour.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnRetour.Location = new System.Drawing.Point(12, 393);
             this.btnRetour.Name = "btnRetour";
-            this.btnRetour.Size = new System.Drawing.Size(102, 51);
+            this.btnRetour.Size = new System.Drawing.Size(151, 45);
             this.btnRetour.TabIndex = 3;
             this.btnRetour.Text = "Retour";
-            this.btnRetour.UseVisualStyleBackColor = true;
+            this.btnRetour.UseVisualStyleBackColor = false;
             this.btnRetour.Click += new System.EventHandler(this.btnRetour_Click);
             // 
             // FrmAjoutMedic

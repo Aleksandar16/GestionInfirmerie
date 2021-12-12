@@ -30,6 +30,12 @@ namespace GestionInfirmerieBO
             this.Id_eleve = id_eleve;
         }
 
+        public Eleve(int id_eleve, string nom_eleve)
+        {
+            this.Id_eleve = id_eleve;
+            this.Nom_eleve = nom_eleve;
+        }
+
         public Eleve(int id_eleve, string nom_eleve, string prenom_eleve, DateTime date_naissance_eleve, string num_portable_eleve,
             string num_portable_parent_eleve, bool tiers_temps_eleve, string commentaire_sante_eleve, Classe classe /*int id_classe_eleve*/)
         {

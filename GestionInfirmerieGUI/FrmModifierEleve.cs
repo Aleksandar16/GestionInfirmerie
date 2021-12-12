@@ -28,6 +28,7 @@ namespace GestionInfirmerieGUI
             cmbModifier.DisplayMember = "Full_name";
 
             cmbModifier.DataSource = liste;
+
         }
         // Bouton pour retourner à la page de gestion des élèves
         private void btnRetour_Click(object sender, EventArgs e)

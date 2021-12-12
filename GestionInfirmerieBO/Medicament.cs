@@ -10,6 +10,7 @@ namespace GestionInfirmerieBO
     {
         private int Id_medicament;
         private string Nom_medicament;
+        private int Quantite_medicament;
         
 
         //Sauvegarde de l'id de l'élève pour appliquer les modifications et la suppression
@@ -32,8 +33,18 @@ namespace GestionInfirmerieBO
             this.Nom_medicament = nom_medicament;
         }
 
+        public Medicament(int id, string libelle, int quantite) : this(id, libelle)
+        {
+            this.Quantite_medicament = quantite;
+        }
+
         public int Id { get => this.Id_medicament; set => this.Id_medicament = value; }
         public string Nom { get => this.Nom_medicament; set => this.Nom_medicament = value; }
-        
+        public int Quantite { get => Quantite_medicament; set => Quantite_medicament = value; }
+
+        public static explicit operator Medicament(List<Medicament> v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
