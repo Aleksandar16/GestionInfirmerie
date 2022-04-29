@@ -37,6 +37,27 @@ namespace GestionInfirmerieGUI
             tiersTemps.Add(OuiTiersTemps);
             tiersTemps.Add(NonTiersTemps);
             cmbAjoutTiersTemps.DataSource = tiersTemps;
+
+            GestionDiplome.SetchaineConnexion(ConfigurationManager.ConnectionStrings["GestionInfirmerie"]);
+            List<Diplome> diplomes = new List<Diplome>();
+            diplomes = GestionDiplome.GetDiplome();
+
+            clbDiplome.DisplayMember = "Id_diplome";
+            clbDiplome.ValueMember = "Libelle_diplome";
+
+            clbDiplome.DataSource = diplomes;
+        }
+
+        private void cbxDiplome_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxDiplome.Checked)
+            {
+                clbDiplome.Visible = true;
+            }
+            else
+            {
+                clbDiplome.Visible = false;
+            }
         }
 
         private void btnValider_Click(object sender, EventArgs e)
@@ -49,14 +70,35 @@ namespace GestionInfirmerieGUI
             }
             else
             {
-                Eleve unEleve = new Eleve(0, txtAjoutNom.Text, txtAjoutPrenom.Text, dtpAjoutDateNaissance.Value, txtAjoutTelEleve.Text, txtAjoutTelParent.Text,
+                if (cbxDiplome.Checked)
+                {
+                    var selectedLangs = new List<Diplome>();
+
+                    foreach (var lang in clbDiplome.CheckedItems)
+                    {
+                        selectedLangs.Add((Diplome)lang);
+                    }
+
+                    Eleve unEleve = new Eleve(0, txtAjoutNom.Text, txtAjoutPrenom.Text, dtpAjoutDateNaissance.Value, txtAjoutTelEleve.Text, txtAjoutTelParent.Text,
+                (bool)cmbAjoutTiersTemps.SelectedValue, txtAjoutCommentaireSante.Text, (Classe)cmbAjoutClasse.SelectedItem, selectedLangs);
+
+                    GestionEleve.CreerEleveDiplome(unEleve);
+
+                    MessageBox.Show("Votre saisie a bien été enregistrée.");
+
+                    this.Close();
+                }
+                else
+                {
+                    Eleve unEleve = new Eleve(0, txtAjoutNom.Text, txtAjoutPrenom.Text, dtpAjoutDateNaissance.Value, txtAjoutTelEleve.Text, txtAjoutTelParent.Text,
                 (bool)cmbAjoutTiersTemps.SelectedValue, txtAjoutCommentaireSante.Text, (Classe)cmbAjoutClasse.SelectedItem);
 
-                GestionEleve.CreerEleve(unEleve);
+                    GestionEleve.CreerEleve(unEleve);
 
-                MessageBox.Show("Votre saisie a bien été enregistrée.");
+                    MessageBox.Show("Votre saisie a bien été enregistrée.");
 
-                this.Close();
+                    this.Close();
+                }
             }
 
         }

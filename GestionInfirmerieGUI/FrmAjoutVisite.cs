@@ -104,7 +104,7 @@ namespace GestionInfirmerieGUI
             }
             else
             {
-                if (dtpFinVisite.Value.Subtract(dtpDebutVisite.Value) > new TimeSpan())
+                if (dtpDebutVisite.Value < dtpFinVisite.Value)
                 {
                     if (txtMotif.Text != string.Empty || txtCommentaire.Text != string.Empty)
                     {

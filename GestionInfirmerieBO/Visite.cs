@@ -102,5 +102,10 @@ namespace GestionInfirmerieBO
         public int Quantite_Medic { get => Quantite_Medic_visite; set => Quantite_Medic_visite = value; }
         public Eleve Eleve { get => Eleve_visite; set => Eleve_visite = value; }
         public Classe Classe { get => Classe_visite; set => Classe_visite = value; }
+
+        public override int GetHashCode()
+        {
+            return this.Quantite_Medic;
+        }
     }
 }

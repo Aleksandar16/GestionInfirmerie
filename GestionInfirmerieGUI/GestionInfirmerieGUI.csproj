@@ -126,6 +126,12 @@
     <Compile Include="FrmModificationMedic.designer.cs">
       <DependentUpon>FrmModificationMedic.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmModificationVisite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmModificationVisite.designer.cs">
+      <DependentUpon>FrmModificationVisite.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmModifierEleve.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,11 +203,17 @@
     <EmbeddedResource Include="FrmModificationMedic.resx">
       <DependentUpon>FrmModificationMedic.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmModificationVisite.resx">
+      <DependentUpon>FrmModificationVisite.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmModifierEleve.resx">
       <DependentUpon>FrmModifierEleve.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmModifierMedic.resx">
       <DependentUpon>FrmModifierMedic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModifierVisite.resx">
+      <DependentUpon>FrmModifierVisite.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSupprimerEleve.resx">
       <DependentUpon>FrmSupprimerEleve.cs</DependentUpon>

@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GestionClasse.cs" />
+    <Compile Include="GestionDiplome.cs" />
     <Compile Include="GestionEleve.cs" />
     <Compile Include="GestionMedicament.cs" />
     <Compile Include="GestionUtilisateur.cs" />

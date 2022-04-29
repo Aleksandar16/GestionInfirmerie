@@ -42,9 +42,15 @@ namespace GestionInfirmerieBO
         public string Nom { get => this.Nom_medicament; set => this.Nom_medicament = value; }
         public int Quantite { get => Quantite_medicament; set => Quantite_medicament = value; }
 
-        public static explicit operator Medicament(List<Medicament> v)
+        public override string ToString()
         {
-            throw new NotImplementedException();
+            return this.Nom;
         }
+
+        public override int GetHashCode()
+        {
+            return this.Quantite;
+        }
+
     }
 }

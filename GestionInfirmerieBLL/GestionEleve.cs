@@ -50,6 +50,11 @@ namespace GestionInfirmerieBLL
         {
             return EleveDAO.AjoutEleve(unEleve);
         }
+
+        public static int CreerEleveDiplome(Eleve unEleve)
+        {
+            return EleveDAO.AjoutEleveDiplome(unEleve);
+        }
         // Méthode qui modifie un nouvel élève avec la méthode UpdateEleve de la DAL
         public static int ModifierEleve(Eleve unEleve)
         {

@@ -47,6 +47,8 @@ namespace GestionInfirmerieGUI
             this.cmbAjoutClasse = new System.Windows.Forms.ComboBox();
             this.dtpAjoutDateNaissance = new System.Windows.Forms.DateTimePicker();
             this.txtAjoutCommentaireSante = new System.Windows.Forms.RichTextBox();
+            this.cbxDiplome = new System.Windows.Forms.CheckBox();
+            this.clbDiplome = new System.Windows.Forms.CheckedListBox();
             this.SuspendLayout();
             // 
             // txtAjoutNom
@@ -85,7 +87,7 @@ namespace GestionInfirmerieGUI
             this.btnValider.Location = new System.Drawing.Point(294, 383);
             this.btnValider.Name = "btnValider";
             this.btnValider.Size = new System.Drawing.Size(206, 55);
-            this.btnValider.TabIndex = 8;
+            this.btnValider.TabIndex = 10;
             this.btnValider.Text = "Ajouter";
             this.btnValider.UseVisualStyleBackColor = false;
             this.btnValider.Click += new System.EventHandler(this.btnValider_Click);
@@ -98,7 +100,7 @@ namespace GestionInfirmerieGUI
             this.button2.Location = new System.Drawing.Point(12, 392);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(170, 46);
-            this.button2.TabIndex = 9;
+            this.button2.TabIndex = 11;
             this.button2.Text = "Retour";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -157,7 +159,7 @@ namespace GestionInfirmerieGUI
             // 
             this.lblAjoutTiersTemps.AutoSize = true;
             this.lblAjoutTiersTemps.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAjoutTiersTemps.Location = new System.Drawing.Point(510, 82);
+            this.lblAjoutTiersTemps.Location = new System.Drawing.Point(510, 9);
             this.lblAjoutTiersTemps.Name = "lblAjoutTiersTemps";
             this.lblAjoutTiersTemps.Size = new System.Drawing.Size(141, 25);
             this.lblAjoutTiersTemps.TabIndex = 15;
@@ -167,7 +169,7 @@ namespace GestionInfirmerieGUI
             // 
             this.lblAjoutCommentaireSante.AutoSize = true;
             this.lblAjoutCommentaireSante.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAjoutCommentaireSante.Location = new System.Drawing.Point(510, 160);
+            this.lblAjoutCommentaireSante.Location = new System.Drawing.Point(501, 82);
             this.lblAjoutCommentaireSante.Name = "lblAjoutCommentaireSante";
             this.lblAjoutCommentaireSante.Size = new System.Drawing.Size(182, 25);
             this.lblAjoutCommentaireSante.TabIndex = 16;
@@ -177,7 +179,7 @@ namespace GestionInfirmerieGUI
             // 
             this.lblAjoutClasse.AutoSize = true;
             this.lblAjoutClasse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAjoutClasse.Location = new System.Drawing.Point(510, 318);
+            this.lblAjoutClasse.Location = new System.Drawing.Point(405, 182);
             this.lblAjoutClasse.Name = "lblAjoutClasse";
             this.lblAjoutClasse.Size = new System.Drawing.Size(73, 25);
             this.lblAjoutClasse.TabIndex = 17;
@@ -187,7 +189,7 @@ namespace GestionInfirmerieGUI
             // 
             this.cmbAjoutTiersTemps.Cursor = System.Windows.Forms.Cursors.Default;
             this.cmbAjoutTiersTemps.FormattingEnabled = true;
-            this.cmbAjoutTiersTemps.Location = new System.Drawing.Point(506, 112);
+            this.cmbAjoutTiersTemps.Location = new System.Drawing.Point(506, 37);
             this.cmbAjoutTiersTemps.Name = "cmbAjoutTiersTemps";
             this.cmbAjoutTiersTemps.Size = new System.Drawing.Size(165, 24);
             this.cmbAjoutTiersTemps.TabIndex = 5;
@@ -195,7 +197,7 @@ namespace GestionInfirmerieGUI
             // cmbAjoutClasse
             // 
             this.cmbAjoutClasse.FormattingEnabled = true;
-            this.cmbAjoutClasse.Location = new System.Drawing.Point(589, 321);
+            this.cmbAjoutClasse.Location = new System.Drawing.Point(506, 182);
             this.cmbAjoutClasse.Name = "cmbAjoutClasse";
             this.cmbAjoutClasse.Size = new System.Drawing.Size(162, 24);
             this.cmbAjoutClasse.TabIndex = 7;
@@ -209,17 +211,40 @@ namespace GestionInfirmerieGUI
             // 
             // txtAjoutCommentaireSante
             // 
-            this.txtAjoutCommentaireSante.Location = new System.Drawing.Point(506, 206);
+            this.txtAjoutCommentaireSante.Location = new System.Drawing.Point(505, 114);
             this.txtAjoutCommentaireSante.Name = "txtAjoutCommentaireSante";
-            this.txtAjoutCommentaireSante.Size = new System.Drawing.Size(246, 78);
+            this.txtAjoutCommentaireSante.Size = new System.Drawing.Size(218, 51);
             this.txtAjoutCommentaireSante.TabIndex = 6;
             this.txtAjoutCommentaireSante.Text = "";
+            // 
+            // cbxDiplome
+            // 
+            this.cbxDiplome.AutoSize = true;
+            this.cbxDiplome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxDiplome.Location = new System.Drawing.Point(506, 245);
+            this.cbxDiplome.Name = "cbxDiplome";
+            this.cbxDiplome.Size = new System.Drawing.Size(145, 29);
+            this.cbxDiplome.TabIndex = 8;
+            this.cbxDiplome.Text = "Diplôme(s) ?";
+            this.cbxDiplome.UseVisualStyleBackColor = true;
+            this.cbxDiplome.CheckedChanged += new System.EventHandler(this.cbxDiplome_CheckedChanged);
+            // 
+            // clbDiplome
+            // 
+            this.clbDiplome.FormattingEnabled = true;
+            this.clbDiplome.Location = new System.Drawing.Point(506, 286);
+            this.clbDiplome.Name = "clbDiplome";
+            this.clbDiplome.Size = new System.Drawing.Size(144, 89);
+            this.clbDiplome.TabIndex = 18;
+            this.clbDiplome.Visible = false;
             // 
             // FrmAjoutEleve
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.clbDiplome);
+            this.Controls.Add(this.cbxDiplome);
             this.Controls.Add(this.dtpAjoutDateNaissance);
             this.Controls.Add(this.cmbAjoutClasse);
             this.Controls.Add(this.txtAjoutCommentaireSante);
@@ -265,5 +290,7 @@ namespace GestionInfirmerieGUI
         private System.Windows.Forms.ComboBox cmbAjoutClasse;
         private System.Windows.Forms.DateTimePicker dtpAjoutDateNaissance;
         private System.Windows.Forms.RichTextBox txtAjoutCommentaireSante;
+        private System.Windows.Forms.CheckBox cbxDiplome;
+        private System.Windows.Forms.CheckedListBox clbDiplome;
     }
 }

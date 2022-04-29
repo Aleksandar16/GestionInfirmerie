@@ -42,15 +42,19 @@ namespace GestionInfirmerieGUI
             DialogResult dialogResult = MessageBox.Show("Voulez-vous supprimer le médicament de la base de données ?", "Enregistrement", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                GestionMedicament.SupprimerMedicament(unMedicament);
+                try
+                {
+                    GestionMedicament.SupprimerMedicament(unMedicament);
+                    this.Close();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Impossible de supprimer le médicament");
+                }
             }
             else if (dialogResult == DialogResult.No)
             {
                 MessageBox.Show("Aucun médicament n'a été supprimée");
-            }
-            else
-            {
-                MessageBox.Show("Impossible de supprimer ce médicament !");
             }
 
             this.Close();

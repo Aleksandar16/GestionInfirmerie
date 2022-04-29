@@ -42,8 +42,15 @@ namespace GestionInfirmerieGUI
             DialogResult dialogResult = MessageBox.Show("Voulez-vous supprimer l'élève de la base de données ?", "Enregistrement", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                GestionEleve.SupprimerEleve(unEleve);
-                this.Close();
+                try
+                {
+                    GestionEleve.SupprimerEleve(unEleve);
+                    this.Close();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Impossible de supprimer l'élève");
+                }
             }
         }
     }

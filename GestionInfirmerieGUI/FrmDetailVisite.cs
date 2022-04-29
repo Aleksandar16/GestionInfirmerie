@@ -22,7 +22,7 @@ namespace GestionInfirmerieGUI
             GestionVisite.SetchaineConnexion(ConfigurationManager.ConnectionStrings
             ["GestionInfirmerie"]);
 
-            dgvVisite.AutoGenerateColumns = false;
+/*            dgvVisite.AutoGenerateColumns = false;
 
             DataGridViewTextBoxColumn NomColumn = new DataGridViewTextBoxColumn();
 
@@ -88,13 +88,7 @@ namespace GestionInfirmerieGUI
 
             MedicColumn.DataPropertyName = "Medicament";
             MedicColumn.HeaderText = "Médicament";
-            MedicColumn.Width = 170;
-
-            DataGridViewTextBoxColumn QuantiteMedicColumn = new DataGridViewTextBoxColumn();
-
-            QuantiteMedicColumn.DataPropertyName = "Quantite_Medic";
-            QuantiteMedicColumn.HeaderText = "Quantité";
-            QuantiteMedicColumn.Width = 170;
+            MedicColumn.Width = 220;
 
             dgvVisite.Columns.Add(NomColumn);
             dgvVisite.Columns.Add(PrenomColumn);
@@ -107,7 +101,6 @@ namespace GestionInfirmerieGUI
             dgvVisite.Columns.Add(EleveColumn);
             dgvVisite.Columns.Add(ClasseColumn);
             dgvVisite.Columns.Add(MedicColumn);
-            dgvVisite.Columns.Add(QuantiteMedicColumn);
 
             dgvVisite.ColumnHeadersVisible = true;
             DataGridViewCellStyle columnHeaderStyle = new DataGridViewCellStyle();
@@ -115,8 +108,37 @@ namespace GestionInfirmerieGUI
             columnHeaderStyle.BackColor = Color.Beige;
             columnHeaderStyle.Font = new Font("Verdana", 10, FontStyle.Bold);
 
-            dgvVisite.ColumnHeadersDefaultCellStyle = columnHeaderStyle;
+            dgvVisite.ColumnHeadersDefaultCellStyle = columnHeaderStyle;*/
 
+            List<Visite> liste = new List<Visite>();
+            liste = GestionVisite.GetVisite();
+
+            dgvVisite.DataSource = liste;
+        }
+        private void btnRetour_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void dtpSearch_ValueChanged(object sender, EventArgs e)
+        {
+            List<Visite> listes = new List<Visite>();
+            listes = GestionVisite.GetVisites(dtpSearch.Value);
+            dgvVisite.DataSource = listes;
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (GestionVisite.ChercherVisite(dtpSearch.Value) == true)
+            {
+                List<Visite> listes = new List<Visite>();
+                listes = GestionVisite.GetVisites(dtpSearch.Value);
+                dgvVisite.DataSource = listes;
+            }
+        }
+
+        private void btnActualiser_Click(object sender, EventArgs e)
+        {
             List<Visite> liste = new List<Visite>();
             liste = GestionVisite.GetVisite();
 

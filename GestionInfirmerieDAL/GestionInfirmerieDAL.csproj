@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="ClasseDAO.cs" />
     <Compile Include="ConnexionBD.cs" />
+    <Compile Include="DiplomeDAO.cs" />
     <Compile Include="EleveDAO.cs" />
     <Compile Include="MedicamentDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

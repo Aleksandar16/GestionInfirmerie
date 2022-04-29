@@ -31,8 +31,9 @@ namespace GestionInfirmerieDAL
             string num_tel_parent_eleve;
             bool tiers_temps_eleve;
             string commentaire_sante_eleve;
-            /*string libelle_classe;*/
             Classe classe;
+            List<Diplome> diplomes = new List<Diplome>();
+            Diplome diplome;
 
             Eleve unEleve;
             // Connexion à la BD
@@ -41,7 +42,7 @@ namespace GestionInfirmerieDAL
             List<Eleve> lesEleves = new List<Eleve>();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "SELECT * FROM ELEVE, CLASSE WHERE ELEVE.id_classe = CLASSE.id_classe";
+            cmd.CommandText = "SELECT ELEVE.*, CLASSE.* FROM ELEVE INNER JOIN CLASSE ON CLASSE.id_classe = ELEVE.id_classe;";
             SqlDataReader monReader = cmd.ExecuteReader();
             // Remplissage de la liste
             while (monReader.Read())
@@ -63,6 +64,34 @@ namespace GestionInfirmerieDAL
             }
             // Fermeture de la connexion
             maConnexion.Close();
+
+            for (int i = 0; i < lesEleves.Count(); i++)
+            {
+                int idEleve = lesEleves[i].Id;
+
+                maConnexion.Open();
+
+                string Id = "@id" + i;
+
+                cmd.CommandText = "SELECT DIPLOME.*, POSSEDER.* FROM DIPLOME, POSSEDER WHERE DIPLOME.id_diplome = POSSEDER.id_diplome AND POSSEDER.id_eleve = " + Id;
+
+                cmd.Parameters.AddWithValue(Id, idEleve);
+
+                monReader = cmd.ExecuteReader();
+
+                while (monReader.Read())
+                {
+                    diplome = new Diplome((int)monReader["id_diplome"], monReader["libelle_diplome"].ToString());
+                    if (diplome == null)
+                    {
+                        diplome = new Diplome(0, "Aucun");
+                    }
+                    diplomes.Add(diplome);
+                }
+                lesEleves[i].Diplomes = diplomes;
+                maConnexion.Close();
+
+            }
 
             return lesEleves;
         }
@@ -209,6 +238,62 @@ namespace GestionInfirmerieDAL
             maConnexion.Close();
             return nbEnr;
         }
+
+        public static int AjoutEleveDiplome(Eleve unEleve)
+        {
+            /*cmd.Parameters.Add(new SqlParameter("@Param1", System.Data.SqlDbType.NVarChar, 11));
+            cmd.Parameters["@Param1"].Value = EleveId;
+            cmd.CommandText = "SELECT * FROM ELEVE, CLASSE WHERE ELEVE.id_classe = CLASSE.id_classe AND id_eleve = @Param1";*/
+            int nbEnr;
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.Parameters.Add(new SqlParameter("@Nom", System.Data.SqlDbType.NVarChar));
+            cmd.Parameters.Add(new SqlParameter("@Prenom", System.Data.SqlDbType.NVarChar));
+            cmd.Parameters.Add(new SqlParameter("@DateNaissance", System.Data.SqlDbType.DateTime));
+            cmd.Parameters.Add(new SqlParameter("@NumTelEleve", System.Data.SqlDbType.NVarChar));
+            cmd.Parameters.Add(new SqlParameter("@NumTelParent", System.Data.SqlDbType.NVarChar));
+            cmd.Parameters.Add(new SqlParameter("@TiersTemps", System.Data.SqlDbType.NVarChar));
+            cmd.Parameters.Add(new SqlParameter("@CommentaireSante", System.Data.SqlDbType.NVarChar));
+            cmd.Parameters.Add(new SqlParameter("@IdClasse", System.Data.SqlDbType.NVarChar));
+            cmd.Parameters["@Nom"].Value = unEleve.Nom;
+            cmd.Parameters["@Prenom"].Value = unEleve.Prenom;
+            cmd.Parameters["@DateNaissance"].Value = unEleve.Date_naissance;
+            cmd.Parameters["@NumTelEleve"].Value = unEleve.Num_portable;
+            cmd.Parameters["@NumTelParent"].Value = unEleve.Num_portable_parent;
+            cmd.Parameters["@TiersTemps"].Value = unEleve.Tiers_temps;
+            cmd.Parameters["@CommentaireSante"].Value = unEleve.Commentaire_sante;
+            /*cmd.Parameters["@IdClasse"].Value = unEleve.Id_Classe;*/
+            cmd.Parameters["@IdClasse"].Value = unEleve.Classe_Eleve.Id;
+            cmd.CommandText = "INSERT INTO ELEVE values(@Nom, @Prenom, @DateNaissance, @NumTelEleve, @NumTelParent, @TiersTemps, @CommentaireSante, @IdClasse)";
+            nbEnr = cmd.ExecuteNonQuery();
+            // Fermeture de la connexion
+            maConnexion.Close();
+
+            maConnexion.Open();
+            cmd.CommandText = "SELECT MAX(id_eleve) AS 'id_eleve' FROM ELEVE ";
+            SqlDataReader sqlDataReader = cmd.ExecuteReader();
+
+            sqlDataReader.Read();
+            int id = (int)sqlDataReader["id_eleve"];
+            maConnexion.Close();
+
+            for (int i = 0; i < unEleve.Diplomes.Count; i++)
+            {
+                maConnexion.Open();
+                string id_eleve = "@Id_Eleve" + i;
+                string id_diplome = "@Id_Diplome" + i;
+                cmd.CommandText = "INSERT INTO POSSEDER (id_eleve,id_diplome) VALUES (" + id_eleve + "," + id_diplome + ")";
+                cmd.Parameters.AddWithValue(id_eleve, id);
+                cmd.Parameters.AddWithValue(id_diplome, unEleve.Diplomes[i].Id_diplome);
+
+                cmd.ExecuteNonQuery();
+                maConnexion.Close();
+            }
+
+            return nbEnr;
+        }
         // Cette méthode modifie un élève passé en paramètre dans la BD
         public static int UpdateEleve(Eleve unEleve)
         {
@@ -252,10 +337,15 @@ namespace GestionInfirmerieDAL
             cmd.Connection = maConnexion;
             cmd.Parameters.Add(new SqlParameter("@Id", System.Data.SqlDbType.Int));
             cmd.Parameters["@Id"].Value = unEleve.Id;
-            cmd.CommandText = "DELETE FROM ELEVE WHERE id_eleve = @Id";
+            cmd.CommandText = "DELETE FROM POSSEDER WHERE id_eleve = @Id";
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
             maConnexion.Close();
+
+            maConnexion.Open();
+            cmd.CommandText = "DELETE FROM ELEVE WHERE id_eleve = @Id";
+            maConnexion.Close();
+
             return nbEnr;
         }
     }

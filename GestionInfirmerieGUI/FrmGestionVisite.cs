@@ -40,10 +40,10 @@ namespace GestionInfirmerieGUI
 
         private void btnModifierVisite_Click(object sender, EventArgs e)
         {
-            FrmModifierVisite FrmModifierVisite;
-            FrmModifierVisite = new FrmModifierVisite();
-            FrmModifierVisite.ShowDialog();
-            FrmModifierVisite.Close();
+            FrmModificationVisite FrmModificationVisite;
+            FrmModificationVisite = new FrmModificationVisite();
+            FrmModificationVisite.ShowDialog();
+            FrmModificationVisite.Close();
         }
     }
 }

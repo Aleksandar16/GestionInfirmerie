@@ -22,7 +22,7 @@ namespace GestionInfirmerieGUI
             GestionEleve.SetchaineConnexion(ConfigurationManager.ConnectionStrings
             ["GestionInfirmerie"]);
 
-            dataGridViewEleve.AutoGenerateColumns = false;
+            /*dataGridViewEleve.AutoGenerateColumns = false;
 
                 DataGridViewTextBoxColumn NomColumn = new DataGridViewTextBoxColumn();
 
@@ -87,7 +87,7 @@ namespace GestionInfirmerieGUI
                 columnHeaderStyle.BackColor = Color.Beige;
                 columnHeaderStyle.Font = new Font("Verdana", 10, FontStyle.Bold);
 
-                dataGridViewEleve.ColumnHeadersDefaultCellStyle = columnHeaderStyle;
+                dataGridViewEleve.ColumnHeadersDefaultCellStyle = columnHeaderStyle;*/
 
                 List<Eleve> liste = new List<Eleve>();
                 liste = GestionEleve.GetEleve();

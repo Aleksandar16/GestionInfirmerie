@@ -175,7 +175,14 @@ namespace GestionInfirmerieDAL
             cmd.Parameters.Add(new SqlParameter("@Id", System.Data.SqlDbType.Int));
             cmd.Parameters["@Id"].Value = unMedicament.Id;
             cmd.CommandText = "DELETE FROM MEDICAMENT WHERE id_medicament = @Id";
-            nbEnr = cmd.ExecuteNonQuery();
+            try
+            {
+                nbEnr = cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw new Exception();
+            }
             // Fermeture de la connexion
             maConnexion.Close();
             return nbEnr;

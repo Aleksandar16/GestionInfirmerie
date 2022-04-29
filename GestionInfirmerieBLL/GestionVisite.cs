@@ -38,5 +38,13 @@ namespace GestionInfirmerieBLL
         {
             return VisiteDAO.GetVisite();
         }
+        public static List<Visite> GetVisites(DateTime Date)
+        {
+            return VisiteDAO.GetVisites(Date);
+        }
+        public static bool ChercherVisite(DateTime Date)
+        {
+            return VisiteDAO.TrouverVisite(Date);
+        }
     }
 }
