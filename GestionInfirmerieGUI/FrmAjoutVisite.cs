@@ -104,41 +104,48 @@ namespace GestionInfirmerieGUI
             }
             else
             {
-                if (dtpDebutVisite.Value < dtpFinVisite.Value)
+                if (DateTime.Compare(dtpDateVisite.Value, DateTime.Now) < 0)
                 {
-                    if (txtMotif.Text != string.Empty || txtCommentaire.Text != string.Empty)
+                    if (dtpDebutVisite.Value <= dtpFinVisite.Value)
                     {
-                        if (cbxPriseMedic.Checked)
+                        if (txtMotif.Text != string.Empty || txtCommentaire.Text != string.Empty)
                         {
-                            Visite uneVisite = new Visite(0, dtpDateVisite.Value, dtpDebutVisite.Value.TimeOfDay, dtpFinVisite.Value.TimeOfDay, txtMotif.Text, txtCommentaire.Text, cbxMaison.Checked,
-                            cbxHopital.Checked, cbxParent.Checked, (Medicament)cmbMedic.SelectedItem, (int)npQuantite.Value, (Eleve)cmbEleve.SelectedItem);
+                            if (cbxPriseMedic.Checked)
+                            {
+                                Visite uneVisite = new Visite(0, dtpDateVisite.Value, dtpDebutVisite.Value.TimeOfDay, dtpFinVisite.Value.TimeOfDay, txtMotif.Text, txtCommentaire.Text, cbxMaison.Checked,
+                                cbxHopital.Checked, cbxParent.Checked, (Medicament)cmbMedic.SelectedItem, (int)npQuantite.Value, (Eleve)cmbEleve.SelectedItem);
 
-                            GestionVisite.CreerVisiteMedic(uneVisite);
+                                GestionVisite.CreerVisiteMedic(uneVisite);
 
-                            MessageBox.Show("Votre saisie a bien été enregistrée.");
+                                MessageBox.Show("Votre saisie a bien été enregistrée.");
 
-                            this.Close();
+                                this.Close();
+                            }
+                            else
+                            {
+                                Visite uneVisite = new Visite(0, dtpDateVisite.Value, dtpDebutVisite.Value.TimeOfDay, dtpFinVisite.Value.TimeOfDay, txtMotif.Text, txtCommentaire.Text, cbxMaison.Checked,
+                                cbxHopital.Checked, cbxParent.Checked, (Eleve)cmbEleve.SelectedItem);
+
+                                GestionVisite.CreerVisite(uneVisite);
+
+                                MessageBox.Show("Votre saisie a bien été enregistrée.");
+
+                                this.Close();
+                            }
                         }
                         else
                         {
-                            Visite uneVisite = new Visite(0, dtpDateVisite.Value, dtpDebutVisite.Value.TimeOfDay, dtpFinVisite.Value.TimeOfDay, txtMotif.Text, txtCommentaire.Text, cbxMaison.Checked,
-                            cbxHopital.Checked, cbxParent.Checked, (Eleve)cmbEleve.SelectedItem);
-
-                            GestionVisite.CreerVisite(uneVisite);
-
-                            MessageBox.Show("Votre saisie a bien été enregistrée.");
-
-                            this.Close();
+                            MessageBox.Show("Vous devez remplir les champs motif et commentaire !");
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Vous devez remplir les champs motif et commentaire !");
+                        MessageBox.Show("L'heure de fin de peut pas être supérieur à l'heure de début");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("L'heure de début de visite doit être inférieur à l'heure de fin de visite !");
+                    MessageBox.Show("Veuillez entrer une date valide");
                 }
             }
         }

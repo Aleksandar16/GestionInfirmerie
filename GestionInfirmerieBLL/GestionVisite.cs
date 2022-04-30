@@ -46,5 +46,15 @@ namespace GestionInfirmerieBLL
         {
             return VisiteDAO.TrouverVisite(Date);
         }
+
+        public static int ModifierVisite(Visite uneVisite)
+        {
+            return VisiteDAO.UpdateVisite(uneVisite);
+        }
+
+        public static int ModifierVisiteSansMedic(Visite uneVisite)
+        {
+            return VisiteDAO.UpdateVisiteSansMedic(uneVisite);
+        }
     }
 }

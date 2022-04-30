@@ -51,6 +51,7 @@
             this.btnModifierVisite.TabIndex = 2;
             this.btnModifierVisite.Text = "Modifier";
             this.btnModifierVisite.UseVisualStyleBackColor = true;
+            this.btnModifierVisite.Click += new System.EventHandler(this.btnModifierVisite_Click);
             // 
             // btnRetour
             // 
@@ -60,13 +61,14 @@
             this.btnRetour.TabIndex = 3;
             this.btnRetour.Text = "Retour";
             this.btnRetour.UseVisualStyleBackColor = true;
+            this.btnRetour.Click += new System.EventHandler(this.btnRetour_Click);
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(250, 146);
+            this.comboBox1.Location = new System.Drawing.Point(186, 146);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(241, 24);
+            this.comboBox1.Size = new System.Drawing.Size(386, 24);
             this.comboBox1.TabIndex = 4;
             // 
             // FrmModificationVisite

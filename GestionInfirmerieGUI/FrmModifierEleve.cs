@@ -40,8 +40,10 @@ namespace GestionInfirmerieGUI
         {
             Eleve unEleve = (Eleve)cmbModifier.SelectedItem;
 
-            FrmModificationEleve FrmModificationEleve = new FrmModificationEleve(unEleve);
-            FrmModificationEleve.Show(); // ouverture du formulaire
+            this.Hide();
+            var modifierEleve = new FrmModificationEleve(unEleve);
+            modifierEleve.FormClosed += (s, args) => this.Close();
+            modifierEleve.Show();
         }
     }
 }

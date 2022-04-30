@@ -39,8 +39,10 @@ namespace GestionInfirmerieGUI
         {
             Medicament unMedicament = (Medicament)cmbModifierMedic.SelectedItem;
 
-            FrmModificationMedic FrmModificationMedic = new FrmModificationMedic(unMedicament);
-            FrmModificationMedic.Show(); // ouverture du formulaire
+            this.Hide();
+            var modifierMedic = new FrmModificationMedic(unMedicament);
+            modifierMedic.FormClosed += (s, args) => this.Close();
+            modifierMedic.Show();
         }
     }
 }

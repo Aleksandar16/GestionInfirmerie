@@ -137,7 +137,7 @@ namespace GestionInfirmerieDAL
                 maison_visite = (bool)monReader["rentre_maison_visite"];
                 hopital_visite = (bool)monReader["hopital_visite"];
                 parent_visite = (bool)monReader["parent_prevenu_visite"];
-                eleve = new Eleve((int)monReader["id_eleve"], monReader["nom_eleve"].ToString());
+                eleve = new Eleve((int)monReader["id_eleve"], monReader["nom_eleve"].ToString(), monReader["prenom_eleve"].ToString());
                 classe = new Classe((int)monReader["id_classe"], monReader["libelle_classe"].ToString());
 
                 uneVisite = new Visite(id_visite, date_visite, heure_debut_visite, heure_fin_visite, motif_visite, commentaire_visite, maison_visite,
@@ -251,5 +251,80 @@ namespace GestionInfirmerieDAL
 
             return lesVisites;
         }
+
+        public static int UpdateVisite(Visite uneVisite)
+        {
+            int nbEnr;
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "UPDATE VISITE SET id_eleve = @idEleve, date_visite = @date, heure_debut_visite = @heureDebut, heure_fin_visite = @heureFin, motif_visite = @motif, commentaire_visite = @commentaires, rentre_maison_visite = @maison, hopital_visite = @hopital, parent_prevenu_visite = @parent WHERE id_visite = @idVisite";
+            cmd.Parameters.AddWithValue("@idEleve", uneVisite.Eleve.Id);
+            cmd.Parameters.AddWithValue("@date", uneVisite.Date.ToString());
+            cmd.Parameters.AddWithValue("@heureDebut", uneVisite.Heure_debut);
+            cmd.Parameters.AddWithValue("@heureFin", uneVisite.Heure_fin);
+            cmd.Parameters.AddWithValue("@motif", uneVisite.Motif);
+            cmd.Parameters.AddWithValue("@commentaires", uneVisite.Commentaire);
+            cmd.Parameters.AddWithValue("@maison", uneVisite.Maison);
+            cmd.Parameters.AddWithValue("@hopital", uneVisite.Hopital);
+            cmd.Parameters.AddWithValue("@parent", uneVisite.Parent);
+            cmd.Parameters.AddWithValue("@idVisite", uneVisite.Id);
+            nbEnr = cmd.ExecuteNonQuery();
+            maConnexion.Close();
+
+            if (uneVisite.Medicament != null)
+            {
+                int id_visite = uneVisite.Id;
+
+                maConnexion.Open();
+                cmd.CommandText = "UPDATE DONNER SET id_medicament = @Id_medic, quantite_medicament = @Quantite WHERE id_visite = @Id_visite";
+                cmd.Parameters.AddWithValue("@Id_visite", id_visite);
+                cmd.Parameters.AddWithValue("@Id_medic", uneVisite.Medicament.Id);
+                cmd.Parameters.AddWithValue("@Quantite", uneVisite.Quantite_Medic);
+
+                cmd.ExecuteNonQuery();
+                maConnexion.Close();
+            }
+           
+
+            return nbEnr;
+        }
+
+        public static int UpdateVisiteSansMedic(Visite uneVisite)
+        {
+            int nbEnr;
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "UPDATE VISITE SET id_eleve = @idEleve, date_visite = @date, heure_debut_visite = @heureDebut, heure_fin_visite = @heureFin, motif_visite = @motif, commentaire_visite = @commentaires, rentre_maison_visite = @maison, hopital_visite = @hopital, parent_prevenu_visite = @parent WHERE id_visite = @idVisite";
+            cmd.Parameters.AddWithValue("@idEleve", uneVisite.Eleve.Id);
+            cmd.Parameters.AddWithValue("@date", uneVisite.Date.ToString());
+            cmd.Parameters.AddWithValue("@heureDebut", uneVisite.Heure_debut);
+            cmd.Parameters.AddWithValue("@heureFin", uneVisite.Heure_fin);
+            cmd.Parameters.AddWithValue("@motif", uneVisite.Motif);
+            cmd.Parameters.AddWithValue("@commentaires", uneVisite.Commentaire);
+            cmd.Parameters.AddWithValue("@maison", uneVisite.Maison);
+            cmd.Parameters.AddWithValue("@hopital", uneVisite.Hopital);
+            cmd.Parameters.AddWithValue("@parent", uneVisite.Parent);
+            cmd.Parameters.AddWithValue("@idVisite", uneVisite.Id);
+            nbEnr = cmd.ExecuteNonQuery();
+            maConnexion.Close();
+
+            if (uneVisite.Medicament != null)
+            {
+                int id_visite = uneVisite.Id;
+
+                maConnexion.Open();
+                cmd.CommandText = "DELETE FROM DONNER WHERE id_visite = @Id_visite";
+                cmd.Parameters.AddWithValue("@Id_visite", id_visite);
+
+                cmd.ExecuteNonQuery();
+                maConnexion.Close();
+            }
+
+
+            return nbEnr;
+        }
+
     }
 }

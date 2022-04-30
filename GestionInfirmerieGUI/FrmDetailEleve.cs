@@ -22,9 +22,9 @@ namespace GestionInfirmerieGUI
             GestionEleve.SetchaineConnexion(ConfigurationManager.ConnectionStrings
             ["GestionInfirmerie"]);
 
-            /*dataGridViewEleve.AutoGenerateColumns = false;
+            dataGridViewEleve.AutoGenerateColumns = false;
 
-                DataGridViewTextBoxColumn NomColumn = new DataGridViewTextBoxColumn();
+            DataGridViewTextBoxColumn NomColumn = new DataGridViewTextBoxColumn();
 
                 NomColumn.DataPropertyName = "Nom";
                 NomColumn.HeaderText = "Nom";
@@ -87,13 +87,38 @@ namespace GestionInfirmerieGUI
                 columnHeaderStyle.BackColor = Color.Beige;
                 columnHeaderStyle.Font = new Font("Verdana", 10, FontStyle.Bold);
 
-                dataGridViewEleve.ColumnHeadersDefaultCellStyle = columnHeaderStyle;*/
+                dataGridViewEleve.ColumnHeadersDefaultCellStyle = columnHeaderStyle;
 
                 List<Eleve> liste = new List<Eleve>();
                 liste = GestionEleve.GetEleve();
 
-                dataGridViewEleve.DataSource = liste;
-                
+                dataGridViewEleve.Rows.Clear();
+
+                if (liste.Count > 0)
+                {
+                    dataGridViewEleve.Rows.Add(liste.Count);
+
+                    for (int i = 0; i < liste.Count; i++)
+                    {
+                        dataGridViewEleve[0, i].Value = liste[i].Nom;
+                        dataGridViewEleve[1, i].Value = liste[i].Prenom;
+                        dataGridViewEleve[2, i].Value = liste[i].Date_naissance.ToString("dd/MM/yyyy");
+                        dataGridViewEleve[3, i].Value = "0" + liste[i].Num_portable;
+                        dataGridViewEleve[4, i].Value = liste[i].Classe_Eleve.Libelle;
+                        dataGridViewEleve[5, i].Value = "0" + liste[i].Num_portable_parent;
+                        if (liste[i].Tiers_temps == true)
+                        {
+                            dataGridViewEleve[6, i].Value = "Oui";
+                        }
+                        else
+                        {
+                            dataGridViewEleve[6, i].Value = "Non";
+                        }
+
+                        dataGridViewEleve[7, i].Value = liste[i].Commentaire_sante;
+                    }
+                }
+
         }
 
         private void btnRetour_Click(object sender, EventArgs e)
@@ -108,28 +133,80 @@ namespace GestionInfirmerieGUI
 
         private void btnChercher_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(txtNom.Text))
+            if (txtNom.Text != "")
             {
-                if (GestionEleve.ChercherEleve(txtNom.Text) == true)
+                List<Eleve> liste = new List<Eleve>();
+                liste = GestionEleve.GetElevesName(txtNom.Text);
+
+                if (liste.Count == 0)
                 {
-                    List<Eleve> listes = new List<Eleve>();
-                    listes = GestionEleve.GetUnEleve(txtNom.Text);
-                    dataGridViewEleve.DataSource = listes;
+                    MessageBox.Show("Il n'existe aucun élève portant ce nom", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    dataGridViewEleve.Rows.Clear();
+                    dataGridViewEleve.Rows.Add(liste.Count);
+
+                    for (int i = 0; i < liste.Count; i++)
+                    {
+                        dataGridViewEleve[0, i].Value = liste[i].Nom;
+                        dataGridViewEleve[1, i].Value = liste[i].Prenom;
+                        dataGridViewEleve[2, i].Value = liste[i].Date_naissance.ToString("dd/MM/yyyy");
+                        dataGridViewEleve[3, i].Value = "0" + liste[i].Num_portable;
+                        dataGridViewEleve[4, i].Value = liste[i].Classe_Eleve.Libelle;
+                        dataGridViewEleve[5, i].Value = "0" + liste[i].Num_portable_parent;
+                        if (liste[i].Tiers_temps == true)
+                        {
+                            dataGridViewEleve[6, i].Value = "Oui";
+                        }
+                        else
+                        {
+                            dataGridViewEleve[6, i].Value = "Non";
+                        }
+
+                        dataGridViewEleve[7, i].Value = liste[i].Commentaire_sante;
+                    }
                 }
 
-                if (GestionEleve.ChercherEleve(txtNom.Text) == false)
-                {
-                    MessageBox.Show("L'élève n'existe pas !", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+
+            }
+            else
+            {
+                actualiser();
             }
         }
 
-        private void btnTout_Click(object sender, EventArgs e)
+        private void actualiser()
         {
             List<Eleve> liste = new List<Eleve>();
             liste = GestionEleve.GetEleve();
 
-            dataGridViewEleve.DataSource = liste;
+            dataGridViewEleve.Rows.Clear();
+
+            if (liste.Count > 0)
+            {
+                dataGridViewEleve.Rows.Add(liste.Count);
+
+                for (int i = 0; i < liste.Count; i++)
+                {
+                    dataGridViewEleve[0, i].Value = liste[i].Nom;
+                    dataGridViewEleve[1, i].Value = liste[i].Prenom;
+                    dataGridViewEleve[2, i].Value = liste[i].Date_naissance.ToString("dd/MM/yyyy");
+                    dataGridViewEleve[3, i].Value = "0" + liste[i].Num_portable;
+                    dataGridViewEleve[4, i].Value = liste[i].Classe_Eleve.Libelle;
+                    dataGridViewEleve[5, i].Value = "0" + liste[i].Num_portable_parent;
+                    if (liste[i].Tiers_temps == true)
+                    {
+                        dataGridViewEleve[6, i].Value = "Oui";
+                    }
+                    else
+                    {
+                        dataGridViewEleve[6, i].Value = "Non";
+                    }
+
+                    dataGridViewEleve[7, i].Value = liste[i].Commentaire_sante;
+                }
+            }
         }
         
     }

@@ -47,8 +47,6 @@ namespace GestionInfirmerieGUI
             this.cmbAjoutClasse = new System.Windows.Forms.ComboBox();
             this.dtpAjoutDateNaissance = new System.Windows.Forms.DateTimePicker();
             this.txtAjoutCommentaireSante = new System.Windows.Forms.RichTextBox();
-            this.cbxDiplome = new System.Windows.Forms.CheckBox();
-            this.clbDiplome = new System.Windows.Forms.CheckedListBox();
             this.SuspendLayout();
             // 
             // txtAjoutNom
@@ -217,34 +215,11 @@ namespace GestionInfirmerieGUI
             this.txtAjoutCommentaireSante.TabIndex = 6;
             this.txtAjoutCommentaireSante.Text = "";
             // 
-            // cbxDiplome
-            // 
-            this.cbxDiplome.AutoSize = true;
-            this.cbxDiplome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxDiplome.Location = new System.Drawing.Point(506, 245);
-            this.cbxDiplome.Name = "cbxDiplome";
-            this.cbxDiplome.Size = new System.Drawing.Size(145, 29);
-            this.cbxDiplome.TabIndex = 8;
-            this.cbxDiplome.Text = "Diplôme(s) ?";
-            this.cbxDiplome.UseVisualStyleBackColor = true;
-            this.cbxDiplome.CheckedChanged += new System.EventHandler(this.cbxDiplome_CheckedChanged);
-            // 
-            // clbDiplome
-            // 
-            this.clbDiplome.FormattingEnabled = true;
-            this.clbDiplome.Location = new System.Drawing.Point(506, 286);
-            this.clbDiplome.Name = "clbDiplome";
-            this.clbDiplome.Size = new System.Drawing.Size(144, 89);
-            this.clbDiplome.TabIndex = 18;
-            this.clbDiplome.Visible = false;
-            // 
             // FrmAjoutEleve
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.clbDiplome);
-            this.Controls.Add(this.cbxDiplome);
             this.Controls.Add(this.dtpAjoutDateNaissance);
             this.Controls.Add(this.cmbAjoutClasse);
             this.Controls.Add(this.txtAjoutCommentaireSante);
@@ -290,7 +265,5 @@ namespace GestionInfirmerieGUI
         private System.Windows.Forms.ComboBox cmbAjoutClasse;
         private System.Windows.Forms.DateTimePicker dtpAjoutDateNaissance;
         private System.Windows.Forms.RichTextBox txtAjoutCommentaireSante;
-        private System.Windows.Forms.CheckBox cbxDiplome;
-        private System.Windows.Forms.CheckedListBox clbDiplome;
     }
 }

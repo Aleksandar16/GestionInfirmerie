@@ -44,7 +44,7 @@ namespace GestionInfirmerieGUI
             {
                 try
                 {
-                    GestionEleve.SupprimerEleve(unEleve);
+                    GestionEleve.SupprimerEleve(unEleve.Id);
                     this.Close();
                 }
                 catch (Exception)

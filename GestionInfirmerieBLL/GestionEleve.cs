@@ -40,9 +40,9 @@ namespace GestionInfirmerieBLL
         }
 
         // Méthode qui cherche un élève avec la méthode TrouverEleve(Nom) de la DAL
-        public static bool ChercherEleve(string Nom)
+        public static List<Eleve> GetElevesName(string name)
         {
-            return EleveDAO.TrouverEleve(Nom);
+            return EleveDAO.GetElevesName(name);
         }
         // Méthode qui renvoi l’objet élève en l'ajoutant à la
         // BD avec la méthode AjoutEleve(unEleve) de la DAL
@@ -51,10 +51,6 @@ namespace GestionInfirmerieBLL
             return EleveDAO.AjoutEleve(unEleve);
         }
 
-        public static int CreerEleveDiplome(Eleve unEleve)
-        {
-            return EleveDAO.AjoutEleveDiplome(unEleve);
-        }
         // Méthode qui modifie un nouvel élève avec la méthode UpdateEleve de la DAL
         public static int ModifierEleve(Eleve unEleve)
         {
@@ -66,9 +62,9 @@ namespace GestionInfirmerieBLL
             return EleveDAO.GetEleveModif(EleveId);
         }
         // Méthode qui supprime un élève avec la méthode DeleteEleve de la DAL
-        public static int SupprimerEleve(Eleve unEleve)
+        public static int SupprimerEleve(int Id)
         {
-            return EleveDAO.DeleteEleve(unEleve);
+            return EleveDAO.DeleteEleve(Id);
         }
     }
 }
