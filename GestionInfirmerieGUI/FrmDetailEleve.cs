@@ -24,7 +24,7 @@ namespace GestionInfirmerieGUI
 
             dataGridViewEleve.AutoGenerateColumns = false;
 
-            DataGridViewTextBoxColumn NomColumn = new DataGridViewTextBoxColumn();
+                DataGridViewTextBoxColumn NomColumn = new DataGridViewTextBoxColumn();
 
                 NomColumn.DataPropertyName = "Nom";
                 NomColumn.HeaderText = "Nom";
@@ -36,17 +36,17 @@ namespace GestionInfirmerieGUI
                 PrenomColumn.HeaderText = "Prenom";
                 PrenomColumn.Width = 80;
 
-                DataGridViewTextBoxColumn DateColumn = new DataGridViewTextBoxColumn();
-
-                DateColumn.DataPropertyName = "Date_naissance";
-                DateColumn.HeaderText = "Date de naissance";
-                DateColumn.Width = 160;
-
                 DataGridViewTextBoxColumn NumTelEleveColumn = new DataGridViewTextBoxColumn();
 
                 NumTelEleveColumn.DataPropertyName = "Num_portable";
                 NumTelEleveColumn.HeaderText = "Portable Eleve";
                 NumTelEleveColumn.Width = 150;
+
+                DataGridViewTextBoxColumn DateColumn = new DataGridViewTextBoxColumn();
+
+                DateColumn.DataPropertyName = "Date_naissance";
+                DateColumn.HeaderText = "Date de naissance";
+                DateColumn.Width = 160;
 
                 DataGridViewTextBoxColumn NumTelParentColumn = new DataGridViewTextBoxColumn();
 
@@ -74,12 +74,13 @@ namespace GestionInfirmerieGUI
 
                 dataGridViewEleve.Columns.Add(NomColumn);
                 dataGridViewEleve.Columns.Add(PrenomColumn);
-                dataGridViewEleve.Columns.Add(DateColumn);
                 dataGridViewEleve.Columns.Add(NumTelEleveColumn);
+                dataGridViewEleve.Columns.Add(DateColumn);
+                dataGridViewEleve.Columns.Add(ClasseEleveColumn);
                 dataGridViewEleve.Columns.Add(NumTelParentColumn);
                 dataGridViewEleve.Columns.Add(TiersTempsColumn);
                 dataGridViewEleve.Columns.Add(CommentaireSanteColumn);
-                dataGridViewEleve.Columns.Add(ClasseEleveColumn);
+                
 
                 dataGridViewEleve.ColumnHeadersVisible = true;
                 DataGridViewCellStyle columnHeaderStyle = new DataGridViewCellStyle();
@@ -102,10 +103,10 @@ namespace GestionInfirmerieGUI
                     {
                         dataGridViewEleve[0, i].Value = liste[i].Nom;
                         dataGridViewEleve[1, i].Value = liste[i].Prenom;
-                        dataGridViewEleve[2, i].Value = liste[i].Date_naissance.ToString("dd/MM/yyyy");
-                        dataGridViewEleve[3, i].Value = "0" + liste[i].Num_portable;
+                        dataGridViewEleve[2, i].Value = liste[i].Num_portable;
+                        dataGridViewEleve[3, i].Value = liste[i].Date_naissance.ToString("dd/MM/yyyy");
                         dataGridViewEleve[4, i].Value = liste[i].Classe_Eleve.Libelle;
-                        dataGridViewEleve[5, i].Value = "0" + liste[i].Num_portable_parent;
+                        dataGridViewEleve[5, i].Value = liste[i].Num_portable_parent;
                         if (liste[i].Tiers_temps == true)
                         {
                             dataGridViewEleve[6, i].Value = "Oui";
